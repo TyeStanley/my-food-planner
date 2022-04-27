@@ -7,72 +7,71 @@ const options = {
 };
 
 
-var divEL = $("<div>").addClass("col-12 col-lg-8 row newDiv'");
 
-
-
- var createRecipes = function(choice){
-     var tenRecipes = 8;
-
-    fetch(`https://edamam-recipe-search.p.rapidapi.com/search?q=${choice}`, options)
- 	.then(function(response){
-         return response.json();
-     })
-
-    .then(function(data){
-         console.log(data);
-
-       
-    
+    //Function to pull recipes from data base
+    var createRecipes = function(choice){
         
+
+        // url for the recipe database
+        var recipeApiUrl = `https://edamam-recipe-search.p.rapidapi.com/search?q=${choice}`;
+
+        //Fetch call to database to find recipes based on query
+        fetch(recipeApiUrl, options)
+
+        //if there is a response from database convert it to json
+ 	    .then(function(response){
+            //return json verison of response to data
+            return response.json();
+        })
+        //if there is data then
+        .then(function(data){
+            //console log the data options
+            console.log(data);
+
+            //setting variable for recipe length
+            var tenRecipes = 8;
             
-    
-         for(var i = 0 ; i < tenRecipes; i++){
+            // loop through the data using the desired length
+            for(var i = 0 ; i < tenRecipes; i++){
              
+            //create a new div element to hold the pictures from the recipes
              var newSmallDiv = $("<div>").addClass('col-2 newDiv');
-                 newSmallDiv.addClass("white-line");
+                //take the new div and set its background image to the picture of the food and cover the full div.
                  newSmallDiv.attr('style',`background-image:url(${data.hits[i].recipe.image});background-size:cover`);
+                 //append food imaged div to div container element
                  divEL[0].append(newSmallDiv[0]);
-                 console.log(data.hits[i].recipe.image);
                  
-
+                 
+                //create an h3 element and set a class to element
                  var h3El =$('<h3>').addClass('recipeH3');
+                 // set the text of h2 to the recipe label
                  h3El.text(`${data.hits[i].recipe.label}`);
+                 //append to photo div
                  newSmallDiv[0].append(h3El[0]);
-                 
-            
-    
-    
-       }
-
-
-
-
-
-    }) 
-	
+}
+}) 
+	// if there is an error with query catch it and console log
  	.catch(err => console.error(err));
-
-
-  
-     
-
-
- }
+}
 
 
 // listener for button click 
 $('.topSection').click(function(event){
+    // set event target to variable
     var event = event.target;
-    var searchRecipeBtn = $('#searchRec');
+    // selecting the div that holds the you choose recipe options
     var searchRecipeDiv = $('.youChooseDiv');
+    //select the random select div container
     var randomRecipeDiv = $('.randomDiv');
     
   
-    
-    if(event.id === searchRecipeBtn[0].id){
+    // if the event id equal to #searchRecBtn
+    if(event.id === "searchRecBtn"){
+        // remove the class from the you choose div container
         searchRecipeDiv.removeClass("youChooseDiv col-12 col-lg-6 text-white white-line d-flex flex-column");
+        // add a new class that adjust the coloum of you choose container
         searchRecipeDiv.addClass("youChooseDiv col-12 col-lg-4 text-white  d-flex flex-column");
+        // set html that creates new form field and search and back to home buttons    
         searchRecipeDiv.html(`
         <h2 class="getStartedH2 text-center">Search a recipe</h2>
         <div class="formDiv">
@@ -84,9 +83,14 @@ $('.topSection').click(function(event){
         </div>`
         );
         
+        //remove random selecion div
         randomRecipeDiv.remove();
+
+        // creating a new div to house the pictures of food in 
+        var divEL = $("<div>").addClass("col-12 col-lg-8 row newDiv'");
+        // select row div container holder the two search fields
         var newDiv = $('div[class="row-div row"]');
-        
+        //append the div that houses pictures to the two classes 
          newDiv.append(divEL[0]);
         
         
@@ -95,4 +99,5 @@ $('.topSection').click(function(event){
     }
 })
 
-createRecipes(`pad thai`);
+
+createRecipes(`borscht`);
