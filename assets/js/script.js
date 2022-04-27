@@ -55,7 +55,7 @@ const options = {
 }
 
 
-// listener for button click 
+// listener for button click adds code for search field
 $('.topSection').click(function(event){
     // set event target to variable
     var event = event.target;
@@ -92,12 +92,8 @@ $('.topSection').click(function(event){
         var newDiv = $('div[class="row-div row"]');
         //append the div that houses pictures to the two classes 
          newDiv.append(divEL[0]);
-        
-        
-
-
-    }
-})
+        }
+});
 
 
 createRecipes(`borscht`);
