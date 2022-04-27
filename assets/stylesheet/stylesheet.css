@@ -1,5 +1,5 @@
 .mainClass{
-    background-color: black;
+    background-color: #212529;
 
     border-bottom: 5px solid white;
 }
@@ -29,17 +29,15 @@
     
 }
 
-.white-border{
-    margin-top: 50px;
-    margin-left: 40px;
-    border: 5px solid #565050;
-    width: 29%;
+ .white-border{
+    margin-top: 20px;
+    border: 2px solid #0e0e0e;
     height: 450px;
     background-color: #f7f7f7;
     border-radius: 15px
-}
+} 
 
-.youChooseDiv{
+.youChooseDiv, newDiv{
     
     height: 500px;
 
@@ -60,7 +58,7 @@
     color:#5d6077;
     font-weight: bolder;
     background-color: #acd1f7;
-    width: 500px;
+    width: 250px;
 }
 .pickBtn:hover{
     background-color: white;
@@ -69,8 +67,22 @@
 .dayOfWeek{
   border-bottom: 2px solid black;
     font-weight: bolder;
+    padding: 10px 35%;
+ 
   
-  padding: 10px 35%;
-  
+    
+}
+.carouselDiv{
+    height: 500px;
+}
+
+.newDiv{
+    height: 200px;
+    width: 210px;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+    
+    
     
 }
