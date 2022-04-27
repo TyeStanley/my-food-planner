@@ -6,55 +6,31 @@ const options = {
 	}
 };
 
-
 var divEL = $("<div>").addClass("col-12 col-lg-8 row newDiv'");
 
-
-
- var createRecipes = function(choice){
-     var tenRecipes = 6;
+var createRecipes = function(choice){
+    var tenRecipes = 6;
 
     fetch(`https://edamam-recipe-search.p.rapidapi.com/search?q=${choice}`, options)
  	.then(function(response){
+
          return response.json();
      })
 
     .then(function(data){
-         console.log(data);
+        console.log(data);
 
-       
-    
-        
-    
-    
-         for(var i = 0 ; i < tenRecipes; i++){
+        for(var i = 0 ; i < tenRecipes; i++){
              
-             var newSmallDiv = $("<div>").addClass('col-3 newDiv');
-                 newSmallDiv.attr('style',`background-image:url(${data.hits[i].recipe.image})`);
-                 divEL[0].append(newSmallDiv[0]);
-                 console.log(data.hits[i].recipe.image);
-                 
-                 
-            
-    
-    
-       }
-
-
-
-
-
+            var newSmallDiv = $("<div>").addClass('col-3 newDiv');
+                newSmallDiv.attr('style',`background-image:url(${data.hits[i].recipe.image})`);
+                divEL[0].append(newSmallDiv[0]);
+                console.log(data.hits[i].recipe.image);    
+        }
     }) 
 	
  	.catch(err => console.error(err));
-
-
-  
-     
-
-
- }
-
+ };
 
 // listener for button click 
 $('.topSection').click(function(event){
@@ -63,18 +39,12 @@ $('.topSection').click(function(event){
     var searchRecipeDiv = $('.youChooseDiv');
     var randomRecipeDiv = $('.randomDiv');
     
-  
-    
-    if(event.id === searchRecipeBtn[0].id){
-        
+    if (event.id === searchRecipeBtn[0].id){
+
         randomRecipeDiv.remove();
         
-        
-         $('div[class="row-div row"]').append(divEL[0]);
-        
-
-
+        $('div[class="row-div row"]').append(divEL[0]);
     }
-})
+});
 
 createRecipes(`healthy meals`);
