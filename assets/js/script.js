@@ -12,7 +12,7 @@ var divEL = $("<div>").addClass("col-12 col-lg-8 row newDiv'");
 
 
  var createRecipes = function(choice){
-     var tenRecipes = 6;
+     var tenRecipes = 8;
 
     fetch(`https://edamam-recipe-search.p.rapidapi.com/search?q=${choice}`, options)
  	.then(function(response){
@@ -29,7 +29,8 @@ var divEL = $("<div>").addClass("col-12 col-lg-8 row newDiv'");
     
          for(var i = 0 ; i < tenRecipes; i++){
              
-             var newSmallDiv = $("<div>").addClass('col-3 newDiv');
+             var newSmallDiv = $("<div>").addClass('col-2 newDiv');
+                 newSmallDiv.addClass("white-line");
                  newSmallDiv.attr('style',`background-image:url(${data.hits[i].recipe.image});background-size:cover`);
                  divEL[0].append(newSmallDiv[0]);
                  console.log(data.hits[i].recipe.image);
@@ -70,6 +71,18 @@ $('.topSection').click(function(event){
   
     
     if(event.id === searchRecipeBtn[0].id){
+        searchRecipeDiv.removeClass("youChooseDiv col-12 col-lg-6 text-white white-line d-flex flex-column");
+        searchRecipeDiv.addClass("youChooseDiv col-12 col-lg-4 text-white  d-flex flex-column");
+        searchRecipeDiv.html(`
+        <h2 class="getStartedH2 text-center">Search a recipe</h2>
+        <div class="formDiv">
+            <form id="user-form" class="searchRecForm d-flex flex-column">
+                <input type="text" name="recipeSearch" id="recipeSearch" autofocus="true" placeholder="beef stew" class="form-input p-2 w-53" />
+                <button type="submit" id="search" class="btn btn-info w-53 mt-3">Search</button>
+                <button type="button" id="resetBtn" class="btn btn-info w-53 mt-3">Back to Home</button>
+            </form>
+        </div>`
+        );
         
         randomRecipeDiv.remove();
         var newDiv = $('div[class="row-div row"]');
@@ -82,4 +95,4 @@ $('.topSection').click(function(event){
     }
 })
 
-createRecipes(`beef stew`);
+createRecipes(`pad thai`);

@@ -20,7 +20,7 @@
 }
 
 .white-line{
-    border-bottom: 5px solid white;
+    border-top: 5px solid white;
 }
 .bottomContainer{
     background-color: black;
@@ -72,13 +72,10 @@
   
     
 }
-.carouselDiv{
-    height: 500px;
-}
 
 .newDiv{
     height: 200px;
-    width: 210px;
+    width: 190px;
     border-radius: 10px;
     margin-left: 10px;
     margin-top: 10px;
