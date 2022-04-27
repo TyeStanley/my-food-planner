@@ -7,6 +7,9 @@ const options = {
 };
 
 
+// creating a new div to house the pictures of food in 
+var divEL = $("<div>").addClass("col-12 col-lg-8 row newDiv'");
+var clickHandlerText = ".YouChooseDiv";
 
     //Function to pull recipes from data base
     var createRecipes = function(choice){
@@ -30,7 +33,7 @@ const options = {
 
             //setting variable for recipe length
             var tenRecipes = 8;
-            
+            divEL.html("");
             // loop through the data using the desired length
             for(var i = 0 ; i < tenRecipes; i++){
              
@@ -54,6 +57,20 @@ const options = {
  	.catch(err => console.error(err));
 }
 
+//event listener function for form field
+var starteventListener = function(){
+    // listen for the click on the search form button
+    $(`${clickHandlerText}`).submit(function(event){
+    //get the value from the search field
+    var recipeText = $('#recipeSearch').val();
+    //takes value and starts search function
+    createRecipes(`${recipeText}`);
+    recipeText = "";
+
+
+
+})  
+}
 
 // listener for button click adds code for search field
 $('.topSection').click(function(event){
@@ -75,25 +92,32 @@ $('.topSection').click(function(event){
         searchRecipeDiv.html(`
         <h2 class="getStartedH2 text-center">Search a recipe</h2>
         <div class="formDiv">
-            <form id="user-form" class="searchRecForm d-flex flex-column">
+            <form onsubmit='return false;' id="user-form" class="searchRecForm d-flex flex-column">
                 <input type="text" name="recipeSearch" id="recipeSearch" autofocus="true" placeholder="beef stew" class="form-input p-2 w-53" />
                 <button type="submit" id="search" class="btn btn-info w-53 mt-3">Search</button>
                 <button type="button" id="resetBtn" class="btn btn-info w-53 mt-3">Back to Home</button>
             </form>
         </div>`
         );
+        clickHandlerText = "#user-form";
+        
         
         //remove random selecion div
         randomRecipeDiv.remove();
 
-        // creating a new div to house the pictures of food in 
-        var divEL = $("<div>").addClass("col-12 col-lg-8 row newDiv'");
+        
         // select row div container holder the two search fields
         var newDiv = $('div[class="row-div row"]');
         //append the div that houses pictures to the two classes 
          newDiv.append(divEL[0]);
+        // starts new event listener function
+        return starteventListener();
+
         }
-});
+        
+    
+    });
 
 
-createRecipes(`borscht`);
+
+
