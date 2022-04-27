@@ -1,0 +1,88 @@
+.mainClass{
+    background-color: #212529;
+
+    border-bottom: 5px solid white;
+}
+
+.mainHeader{
+    border-bottom:black;
+    
+}
+.getStartedH2, .randomH2{
+    font-size: 30px;
+    margin-top: 20px;
+    
+    
+   
+}
+.topSection{
+    width: 100%;
+}
+
+.white-line{
+    border-bottom: 5px solid white;
+}
+.bottomContainer{
+    background-color: black;
+    height: 300px;
+    margin-top: 100px;
+    
+}
+
+ .white-border{
+    margin-top: 20px;
+    border: 2px solid #0e0e0e;
+    height: 450px;
+    background-color: #f7f7f7;
+    border-radius: 15px
+} 
+
+.youChooseDiv, newDiv{
+    
+    height: 500px;
+
+}
+.topBtnDiv{
+    display:flex;
+    justify-content: center;
+    padding: 50px;
+    margin-top: 50px;
+    
+}
+
+.pickBtn{
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 25px #e6e49d;
+    border: 2px solid black;
+    color:#5d6077;
+    font-weight: bolder;
+    background-color: #acd1f7;
+    width: 250px;
+}
+.pickBtn:hover{
+    background-color: white;
+    transform:scale(1.1);
+}
+.dayOfWeek{
+  border-bottom: 2px solid black;
+    font-weight: bolder;
+    padding: 10px 35%;
+ 
+  
+    
+}
+.carouselDiv{
+    height: 500px;
+}
+
+.newDiv{
+    height: 200px;
+    width: 210px;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+    
+    
+    
+}
