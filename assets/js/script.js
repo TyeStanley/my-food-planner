@@ -25,15 +25,19 @@ var divEL = $("<div>").addClass("col-12 col-lg-8 row newDiv'");
        
     
         
-    
+            
     
          for(var i = 0 ; i < tenRecipes; i++){
              
              var newSmallDiv = $("<div>").addClass('col-3 newDiv');
-                 newSmallDiv.attr('style',`background-image:url(${data.hits[i].recipe.image})`);
+                 newSmallDiv.attr('style',`background-image:url(${data.hits[i].recipe.image});background-size:cover`);
                  divEL[0].append(newSmallDiv[0]);
                  console.log(data.hits[i].recipe.image);
                  
+
+                 var h3El =$('<h3>').addClass('recipeH3');
+                 h3El.text(`${data.hits[i].recipe.label}`);
+                 newSmallDiv[0].append(h3El[0]);
                  
             
     
@@ -68,13 +72,14 @@ $('.topSection').click(function(event){
     if(event.id === searchRecipeBtn[0].id){
         
         randomRecipeDiv.remove();
+        var newDiv = $('div[class="row-div row"]');
         
+         newDiv.append(divEL[0]);
         
-         $('div[class="row-div row"]').append(divEL[0]);
         
 
 
     }
 })
 
-createRecipes(`healthy meals`);
+createRecipes(`beef stew`);
