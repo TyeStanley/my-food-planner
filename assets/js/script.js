@@ -9,8 +9,9 @@ const options = {
 
 
 
+
 // creating a new div to house the pictures of food in 
- roughdraft
+
 var divEL = $("<div>").addClass("col-12 col-lg-8 row newDiv'");
 var clickHandlerText = ".YouChooseDiv";
 
