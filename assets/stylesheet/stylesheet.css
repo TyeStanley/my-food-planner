@@ -2,6 +2,18 @@ body {
     box-sizing: border-box;
 }
 
+.title-bar { 
+    background-color: gray;
+}
+
+header ul li a { 
+    color: white;
+}
+
+.fi-list {
+    background-color: white;
+}
+
 .mainClass{
     background-color: #212529;
     border-bottom: 5px solid white;
