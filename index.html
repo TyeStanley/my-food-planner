@@ -2,21 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=100, initial-scale=1.0">
-    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=100, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./assets/stylesheet/stylesheet.css" />
+    <title>Weekly Food Planner</title>
 </head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<link rel="stylesheet" href="./assets/stylesheet/stylesheet.css">
 <body>
+    <!-- Header Section -->
     <header class="mainHeader bg-dark text-white p-2">
         <h1 class="headerH1 text-center">Weekly Food Planner</h1>
     </header>
+
+    <!-- Main Content -->
     <main class="mainClass mt-1">
+
         <!-- Top Section -->
         <section class="topSection container bg-dark ">
             <!-- Row for two button div-->
             <div class="row-div row">
+
+                <!-- Button 1 -->
+                <div class="youChooseDiv col-12 col-lg-4 text-white white-line d-flex flex-column">
+                    <h2 class="getStartedH2 text-center">Search a recipe</h2>
+                    <div class="topBtnDiv row">
+                        <button id="searchRec"class="pickBtn col-12">Search a Recipe</button>
+                    </div>
+                </div>
+
+                <!-- Button 2 -->
+                <div class="randomDiv col-12 col-lg-6 text-white  white-line">
                 <div class="youChooseDiv col-12 col-lg-6 text-white  d-flex flex-column">
                     <h2 class="getStartedH2 text-center">Search a recipe</h2>
                     <div class="topBtnDiv row">
@@ -31,8 +46,13 @@
                         <button class="pickBtn">Random Recipe</button>
                     </div>
                 </div>
+
             </div>
+
         </section>
+
+        <!-- Bottom - Days of the Week -->
+        <section class="bottomSection container container bg-dark">
         <!-- Bottom Section -->
         <section class="bottomSection container container bg-dark white-line">
             <div class="dayDiv row">
@@ -48,9 +68,9 @@
         </section>
 
     </main>
+
     <!-- add script at the bottom of the body -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
