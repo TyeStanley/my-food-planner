@@ -69,17 +69,22 @@ body {
     border-bottom: 2px solid black;
     font-weight: bolder;
     padding: 10px 35%;
+    z-index: 0;
 }
 
 .newDiv{
     height: 200px;
-    width: 190px;
+    width:  200px !important;
     border-radius: 10px;
     margin-left: 10px;
     margin-top: 10px;
+    z-index: 2;
     
     
     
+}
+.highLight{
+    background-color: green;
 }
 
 .recipeH3{

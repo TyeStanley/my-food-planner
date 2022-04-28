@@ -42,7 +42,9 @@ var clickHandlerText = ".YouChooseDiv";
             for(var i = 0 ; i < tenRecipes; i++){
              
             //create a new div element to hold the pictures from the recipes
-             var newSmallDiv = $("<div>").addClass('col-2 newDiv');
+             var newSmallDiv = $("<div>").addClass('col-2 newDivcol-2 newDiv');
+                //add a draggable id
+                newSmallDiv.attr("id", "draggable");
                 //take the new div and set its background image to the picture of the food and cover the full div.
                  newSmallDiv.attr('style',`background-image:url(${data.hits[i].recipe.image});background-size:cover`);
                  //append food imaged div to div container element
@@ -56,24 +58,49 @@ var clickHandlerText = ".YouChooseDiv";
                  //append to photo div
                  newSmallDiv[0].append(h3El[0]);
 }
+return draggableUnit();
 }) 
 	// if there is an error with query catch it and console log
  	.catch(err => console.error(err));
 }
 
+
+
+
+var draggableUnit = function(){
+  console.log($('#draggable'));
+  console.log($('#dropable'));
+  $( ".newDiv" ).draggable();
+  $( ".dropable" ).droppable({
+    drop: function( event, ui ) {
+      $( this )
+        .addClass( "highLight" )
+        
+          ;
+    }
+  });
+
+        
+      
+
+};
+
+
 //event listener function for form field
 var starteventListener = function(){
-    // listen for the click on the search form button
-    $(`${clickHandlerText}`).submit(function(event){
-    //get the value from the search field
-    var recipeText = $('#recipeSearch').val();
-    //takes value and starts search function
-    createRecipes(`${recipeText}`);
-    recipeText = "";
+  // listen for the click on the search form button
+  $(`${clickHandlerText}`).submit(function(event){
+  //get the value from the search field
+  var recipeText = $('#recipeSearch').val();
+  //takes value and starts search function
+  createRecipes(`${recipeText}`);
+  recipeText = "";
+  
 
 
 
 })  
+
 }
 
 // listener for button click adds code for search field
@@ -85,6 +112,7 @@ $('.topSection').click(function(event){
     //select the random select div container
     var randomRecipeDiv = $('.randomDiv');
     
+
   
     // if the event id equal to #searchRecBtn
     if(event.id === "searchRecBtn"){
@@ -122,6 +150,4 @@ $('.topSection').click(function(event){
     
     });
 
-
-
-
+  
