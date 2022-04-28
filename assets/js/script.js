@@ -11,9 +11,10 @@ const options = {
 
 
 // creating a new div to house the pictures of food in 
-
-var divEL = $("<div>").addClass("col-12 col-lg-8 row newDiv'");
+var divEL = $("<div>").addClass("col-12 col-lg-9 row newDiv'");
 var clickHandlerText = ".YouChooseDiv";
+var dataVar = {};
+var currentBackgroundImage = ``;
 
     //Function to pull recipes from data base
     var createRecipes = function(choice){
@@ -33,18 +34,20 @@ var clickHandlerText = ".YouChooseDiv";
         //if there is data then
         .then(function(data){
             //console log the data options
-            console.log(data);
+            
+            dataVar = data;
 
             //setting variable for recipe length
-            var tenRecipes = 8;
+            var tenRecipes = 9;
             divEL.html("");
             // loop through the data using the desired length
             for(var i = 0 ; i < tenRecipes; i++){
              
             //create a new div element to hold the pictures from the recipes
-             var newSmallDiv = $("<div>").addClass('col-2 newDivcol-2 newDiv');
+             var newSmallDiv = $("<div>").addClass('col-3 newDiv');
                 //add a draggable id
                 newSmallDiv.attr("id", "draggable");
+                newSmallDiv.attr("data", `style${i}`);
                 //take the new div and set its background image to the picture of the food and cover the full div.
                  newSmallDiv.attr('style',`background-image:url(${data.hits[i].recipe.image});background-size:cover`);
                  //append food imaged div to div container element
@@ -67,23 +70,10 @@ return draggableUnit();
 
 
 
-var draggableUnit = function(){
-  console.log($('#draggable'));
-  console.log($('#dropable'));
-  $( ".newDiv" ).draggable();
-  $( ".dropable" ).droppable({
-    drop: function( event, ui ) {
-      $( this )
-        .addClass( "highLight" )
-        
-          ;
-    }
-  });
 
-        
-      
 
-};
+
+
 
 
 //event listener function for form field
@@ -112,14 +102,14 @@ $('.topSection').click(function(event){
     //select the random select div container
     var randomRecipeDiv = $('.randomDiv');
     
-
+    console.log(event.className);
   
     // if the event id equal to #searchRecBtn
     if(event.id === "searchRecBtn"){
         // remove the class from the you choose div container
         searchRecipeDiv.removeClass("youChooseDiv col-12 col-lg-6 text-white white-line d-flex flex-column");
         // add a new class that adjust the coloum of you choose container
-        searchRecipeDiv.addClass("youChooseDiv col-12 col-lg-4 text-white  d-flex flex-column");
+        searchRecipeDiv.addClass("youChooseDiv col-12 col-lg-3 text-white  d-flex flex-column");
         // set html that creates new form field and search and back to home buttons    
         searchRecipeDiv.html(`
         <h2 class="getStartedH2 text-center">Search a recipe</h2>
@@ -146,8 +136,40 @@ $('.topSection').click(function(event){
         return starteventListener();
 
         }
+    else if(event.className === "col-3 newDiv ui-draggable ui-draggable-handle"){
+      currentBackgroundImage = event.style.backgroundImage;
+      console.log(currentBackgroundImage);
+    }
         
     
     });
 
   
+    var draggableUnit = function(){
+  
+ 
+  
+      $( ".newDiv" ).draggable();
+      $( ".droppable" ).droppable({
+        drop: function( event, ui ) {
+          
+          
+          
+          console.log( currentBackgroundImage);
+          
+          $( this )
+
+            .css("background-image", `${currentBackgroundImage}`)
+            
+            .css("background-size","cover")
+    
+            $(".newDiv").remove();
+        }
+            
+              
+      });
+    
+            
+          
+    
+    };
