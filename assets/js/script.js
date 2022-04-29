@@ -163,7 +163,8 @@ $('.topSection').click(function(event){
         drop: function( event, ui ) {
             var dropped = ui.draggable;
             var droppedOn = $(this);
-            $(dropped).detach().removeClass("col-3 newDiv ui-draggable").addClass("dropDiv").appendTo(droppedOn);
+            $(droppedOn).html("");
+            $(dropped).detach().removeClass("col-3 newDiv ui-draggable ui-droppable").addClass("dropDiv").appendTo(droppedOn);
           
           
           
@@ -176,7 +177,7 @@ $('.topSection').click(function(event){
             .css("background-size","cover")
 
             .css("background-position","center")
-    
+            
             //$(".newDiv").remove();
         }
             
