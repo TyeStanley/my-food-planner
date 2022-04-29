@@ -136,10 +136,10 @@ $('.topSection').click(function(event){
         return starteventListener();
 
         }
-    else if(event.className === "col-3 newDiv ui-draggable ui-draggable-handle"){
-      currentBackgroundImage = event.style.backgroundImage;
-      console.log(currentBackgroundImage);
-    }
+    // else if(event.className === "col-3 newDiv ui-draggable ui-draggable-handle"){
+    //   currentBackgroundImage = event.style.backgroundImage;
+    //   console.log(currentBackgroundImage);
+    // }
         
     
     });
@@ -149,21 +149,35 @@ $('.topSection').click(function(event){
   
  
   
-      $( ".newDiv" ).draggable();
+      $( ".newDiv" ).draggable({
+        helper: "clone",
+        scroll: true,
+        scrollSensitivity: 215,
+        scrollSpeed: 5,
+        snap: true
+
+          
+        
+      });
       $( ".droppable" ).droppable({
         drop: function( event, ui ) {
+            var dropped = ui.draggable;
+            var droppedOn = $(this);
+            $(dropped).detach().removeClass("col-3 newDiv ui-draggable").addClass("dropDiv").appendTo(droppedOn);
           
           
           
-          console.log( currentBackgroundImage);
+         
           
           $( this )
 
             .css("background-image", `${currentBackgroundImage}`)
             
             .css("background-size","cover")
+
+            .css("background-position","center")
     
-            $(".newDiv").remove();
+            //$(".newDiv").remove();
         }
             
               
