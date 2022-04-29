@@ -1,27 +1,71 @@
 body {
     box-sizing: border-box;
+    width: 100%;
+}
+/* Header and hero image section */
+header {
+    background-color:rgb(23, 220, 227)
 }
 
-.title-bar { 
-    background-color: gray;
+#siteHeader {
+    font-size: 50px;
+    font-weight: bold;
 }
 
-header ul li a { 
-    color: white;
+#hero {
+    background-image: url(/assets/images/image-test.png);
+    background-size: cover;
+    height: 350px;
+    border: 2px solid red;
 }
 
-.fi-list {
-    background-color: white;
+.filter {
+    background-color:rgba(160, 161, 161, 0.5);
+    height: 100%;
 }
 
-.mainClass{
-    background-color: #212529;
-    border-bottom: 5px solid white;
+#heroContent {
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    background-attachment: fixed;
+    background-position: 80%;
 }
 
-.mainHeader{
-    border-bottom:black;
+#heroForm {
+    border: solid 3px rgb(23, 220, 227);
+    background-color: rgba(133, 133, 132, 0.8);
+    padding: 40x;
+    color: rgb(16, 194, 218);
+    height: 300px;
+    width: 40%;
+    
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    
 }
+
+#heroInfo {
+    width: 40%;
+    background-color: rgba(160, 161, 161, 0.5);
+    border: solid 3px rgb(23, 220, 227);
+    height: 300px;
+    width: 40%;
+    border-radius: 15px;
+}
+
+/* End of Header and Hero image section */
+
+
+
+
+
+
+
+
+
 
 .getStartedH2, .randomH2{
     font-size: 30px;

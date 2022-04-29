@@ -10,39 +10,41 @@
 </head>
 <body>
     <!-- Header Section -->
-    <header class="flex justify-center">
-        <div class="">
-            <h1 class="">WEEKLY FOOD PLANNER</h1>
+    <header class="mx-auto flex justify-center">
+        <div class="filter">
+            <h1 id="siteHeader" class="p-4">WEEKLY FOOD PLANNER</h1>
+            <ul class="flex justify-center">
+                <li class="m-2">Link 1</li>
+                <li class="m-2">Link 2</li>
+                <li class="m-2">Link 3</li>
+            </ul>
         </div>
     </header>
     <!-- End of Header Section -->
 
     <!-- Main Section -->
-    <main class="">
+    <main class="mx-auto">
 
         <!-- Hero Section with future form -->
-        <section class="">
-            <!-- Row for the two button div-->
-            <div class="flex">
-                <!-- Button 1 -->
-                <div class="youChooseDiv ">
-                    <h2 class="getStartedH2 ">Search a recipe</h2>
-                    <div class="topBtnDiv row">
-                        <button id="searchRecBtn" class="">Search a Recipe</button>
+        <section id="hero" class="">
+            <div class="filter">
+                <div id="heroContent" class="flex justify-center">
+                    <form id="heroForm" class="p-3 m-3">
+                        <label for="foodType">
+                            <p>What type of food are you looking for?</p>
+                        </label>
+                        <input type="text" placeholder="Type of food" name="foodType" id="foodType" />
+                    </form>
+                    
+                    <div id="heroInfo" class="p-3 m-3">
+                        <h2>HELLO WORLD</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic magnam temporibus error atque in dignissimos, eum quis qui earum tempora repudiandae harum animi aliquam pariatur corporis magni vel labore commodi.</p>
                     </div>
-                </div>
-                <!-- Button 2 -->
-                <div class="randomDiv ">
-                    <h2 class="randomH2 ">Pick a random recipe</h2>
-                    <div class="topBtnDiv">
-                        <button class="pickBtn">Random Recipe</button>
-                    </div>
-                </div>
-
                 </div>
             </div>
+            
         </section>
-
+        <!-- End of Hero Section -->
 
 
         <!-- Bottom - Days of the Week -->
