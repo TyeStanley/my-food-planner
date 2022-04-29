@@ -14,7 +14,7 @@ const options = {
 var divEL = $("<div>").addClass("col-12 col-lg-9 row newDiv'");
 var clickHandlerText = ".YouChooseDiv";
 var dataVar = {};
-var currentBackgroundImage = ``;
+
 
     //Function to pull recipes from data base
     var createRecipes = function(choice){
@@ -25,6 +25,7 @@ var currentBackgroundImage = ``;
 
         //Fetch call to database to find recipes based on query
         fetch(recipeApiUrl, options)
+
 
         //if there is a response from database convert it to json
  	    .then(function(response){
@@ -136,11 +137,7 @@ $('.topSection').click(function(event){
         return starteventListener();
 
         }
-    // else if(event.className === "col-3 newDiv ui-draggable ui-draggable-handle"){
-    //   currentBackgroundImage = event.style.backgroundImage;
-    //   console.log(currentBackgroundImage);
-    // }
-        
+   
     
     });
 
@@ -152,8 +149,8 @@ $('.topSection').click(function(event){
       $( ".newDiv" ).draggable({
         helper: "clone",
         scroll: true,
-        scrollSensitivity: 215,
-        scrollSpeed: 5,
+        scrollSensitivity: 100,
+        scrollSpeed: 25,
         snap: true
 
           
@@ -172,12 +169,12 @@ $('.topSection').click(function(event){
           
           $( this )
 
-            .css("background-image", `${currentBackgroundImage}`)
+            
             
             .css("background-size","cover")
 
             .css("background-position","center")
-            
+
             //$(".newDiv").remove();
         }
             
@@ -188,3 +185,4 @@ $('.topSection').click(function(event){
           
     
     };
+
