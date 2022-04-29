@@ -5,61 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=100, initial-scale=1.0" />
     <!-- Links for CSS / FONTS / ICONS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudfare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
-    <script defer src="https://use.fontawesome.come/releases/v5.0.7/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./assets/stylesheet/stylesheet.css" />
     <!-- Page Title -->
     <title>Weekly Food Planner</title>
 </head>
 <body>
     <!-- Header Section -->
-    <header class="mx-auto flex justify-center">
+    <header class="">
         <div class="filter">
             <h1 id="siteHeader" class="p-4">WEEKLY FOOD PLANNER</h1>
-            <navbar class="flex justify-center">
-                <li class="m-2">Link 1</li>
-                <li class="m-2">Link 2</li>
-                <li class="m-2">Link 3</li>
-            </navbar>
+          
         </div>
     </header>
     <!-- End of Header Section -->
 
     <!-- Main Section -->
-    <main class="mx-auto">
+    <main class="">
 
-        <!-- Hero Section with future form -->
-        <section id="hero" class="">
-            <div class="filter">
-                <div id="heroContent" class="flex justify-center">
-                    <form id="heroForm" class="p-3 m-3">
-                        <label for="foodType">
-                            <p>What type of food are you looking for?</p>
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <!-- Hero Body Section-->
+            <div class="hero-body">
+                <!-- Content from hero form -->
+                <div id="heroSectionContainer" class="container columns">
+                    <!-- Hero Form -->
+                    <form id="heroForm" class="field column is-one-quarter">
+                        <label class="formLabel" for="foodType">
+                            <p>Search For Recipes:</p>
                         </label>
-                        <input type="text" placeholder="Type of food" name="foodType" id="foodType" />
+                        <input class="input" type="text" placeholder="Type of food" name="foodType" id="foodType" />
+                        <button id ="searchRecBtn" class="button is-normal is-responsive" type="submit">Search</button>
                     </form>
+                    <div id="recipeResults" class="column">
+                        
+                    </div>
                     
-                    <div id="heroInfo" class="p-3 m-3">
-                        <h2>HELLO WORLD</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic magnam temporibus error atque in dignissimos, eum quis qui earum tempora repudiandae harum animi aliquam pariatur corporis magni vel labore commodi.</p>
                     </div>
                 </div>
-            </div>
-            
-        </section>
-        <!-- End of Hero Section -->
-
-
-        <!-- Bottom - Days of the Week -->
-        <section class="bottomSection flex">
-            <div class="dayDiv ">
-                <div class=""><h3 class="dayOfWeek">Monday</h3></div>
-                <div class=""><h3 class="dayOfWeek">Tuesday</h3></div>
-                <div class=""><h3 class="dayOfWeek">Wednesday</h3></div>
-                <div class=""><h3 class="dayOfWeek">Thursday</h3></div>
-                <div class=""><h3 class="dayOfWeek">Friday</h3></div>
-            </div>
-        </section>
+            </section>
 
     </main>
     <!-- End of Main Section -->

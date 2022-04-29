@@ -10,10 +10,10 @@ const options = {
 
 
 
-// creating a new div to house the pictures of food in 
 
-var divEL = $("<div>").addClass("col-12 col-lg-8 row newDiv'");
-var clickHandlerText = ".YouChooseDiv";
+//Select the recipe results sections
+var divEL = $("#recipeResults");
+//var clickHandlerText = ".YouChooseDiv";
 
     //Function to pull recipes from data base
     var createRecipes = function(choice){
@@ -42,11 +42,13 @@ var clickHandlerText = ".YouChooseDiv";
             for(var i = 0 ; i < tenRecipes; i++){
              
             //create a new div element to hold the pictures from the recipes
-             var newSmallDiv = $("<div>").addClass('col-2 newDiv');
+             var newSmallDiv = $("<div>").addClass('column-one-third newDiv');
                 //take the new div and set its background image to the picture of the food and cover the full div.
                  newSmallDiv.attr('style',`background-image:url(${data.hits[i].recipe.image});background-size:cover`);
                  //append food imaged div to div container element
-                 divEL[0].append(newSmallDiv[0]);
+                 divEL.append(newSmallDiv[0]);
+
+                 // divel might need [0]
                  
                  
                 //create an h3 element and set a class to element
@@ -77,37 +79,17 @@ var starteventListener = function(){
 }
 
 // listener for button click adds code for search field
-$('.topSection').click(function(event){
+$('#heroSectionContainer').click(function(event){
     // set event target to variable
     var event = event.target;
-    // selecting the div that holds the you choose recipe options
-    var searchRecipeDiv = $('.youChooseDiv');
-    //select the random select div container
-    var randomRecipeDiv = $('.randomDiv');
-    
-  
+   
     // if the event id equal to #searchRecBtn
     if(event.id === "searchRecBtn"){
-        // remove the class from the you choose div container
-        searchRecipeDiv.removeClass("youChooseDiv col-12 col-lg-6 text-white white-line d-flex flex-column");
-        // add a new class that adjust the coloum of you choose container
-        searchRecipeDiv.addClass("youChooseDiv col-12 col-lg-4 text-white  d-flex flex-column");
-        // set html that creates new form field and search and back to home buttons    
-        searchRecipeDiv.html(`
-        <h2 class="getStartedH2 text-center">Search a recipe</h2>
-        <div class="formDiv">
-            <form onsubmit='return false;' id="user-form" class="searchRecForm d-flex flex-column">
-                <input type="text" name="recipeSearch" id="recipeSearch" autofocus="true" placeholder="beef stew" class="form-input p-2 w-53" />
-                <button type="submit" id="search" class="btn btn-info w-53 mt-3">Search</button>
-                <button type="button" id="resetBtn" class="btn btn-info w-53 mt-3">Back to Home</button>
-            </form>
-        </div>`
-        );
+    // Clear out any html elements in the divEL
+        divEL.html("");
+    }
         clickHandlerText = "#user-form";
         
-        
-        //remove random selecion div
-        randomRecipeDiv.remove();
 
         
         // select row div container holder the two search fields
