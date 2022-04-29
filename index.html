@@ -14,10 +14,36 @@
 <body>
     <!-- Header Section -->
     <header class="">
-        <div class="filter">
+        <!-- <div class="filter">
             <h1 id="siteHeader" class="p-4">WEEKLY FOOD PLANNER</h1>
           
-        </div>
+        </div> -->
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div  class="navbar-brand brand">
+              <a class="navbar-item">
+                <h1 class="navBarH1">Weekly Food Planner</h1>
+              </a>
+          
+              <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+              </a>
+            </div>
+          
+            <div id="navbarBasicExample" class="navbar-menu">
+              <div class="navbar-start">
+                <a class="navbar-item navBarText">
+                  Home
+                </a>
+          
+                <a class="navbar-item navBarText">
+                  Footer
+                </a>
+          
+             
+          
+              
     </header>
     <!-- End of Header Section -->
 
@@ -38,7 +64,7 @@
                         <input class="input" type="text" placeholder="Search a Recipe" name="foodType" id="recipeSearch" />
                         <button id ="searchRecBtn" class="button is-normal is-responsive" type="submit">Search</button>
                     </form>
-                    <div id="recipeResults" class="column">
+                    <div id="recipeResults" class="column is-full columns is-flex-wrap-wrap">
                         
                     </div>
                     

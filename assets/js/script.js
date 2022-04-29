@@ -15,24 +15,18 @@ const options = {
 var divEL = $("#recipeResults");
 //var clickHandlerText = ".YouChooseDiv";
 
-    //Function to pull recipes from data base
-    var createRecipes = function(choice){
-        
-        debugger;
+//Function to pull recipes from data base
+var createRecipes = function(choice){
         // url for the recipe database
         var recipeApiUrl = `https://edamam-recipe-search.p.rapidapi.com/search?q=${choice}`;
+        debugger;
 
         //Fetch call to database to find recipes based on query
-        fetch(recipeApiUrl, options)
-
-        //if there is a response from database convert it to json
- 	    .then(function(response){
-            //return json verison of response to data
-            return response.json();
+        fetch(recipeApiUrl, options).then(function(response){
+            return response.json()
         })
-        //if there is data then
         .then(function(data){
-            //console log the data options
+          //console log the data options
             console.log(data);
 
             //setting variable for recipe length
@@ -42,9 +36,9 @@ var divEL = $("#recipeResults");
             for(var i = 0 ; i < tenRecipes; i++){
              
             //create a new div element to hold the pictures from the recipes
-             var newSmallDiv = $("<div>").addClass('column-one-third newDiv');
+             var newSmallDiv = $("<div>").addClass('column is-one-fifth newDiv');
                 //take the new div and set its background image to the picture of the food and cover the full div.
-                 newSmallDiv.attr('style',`background-image:url(${data.hits[i].recipe.image});background-size:cover`);
+                 newSmallDiv.attr('style',`background-image:url(${data.hits[i].recipe.image})`);
                  //append food imaged div to div container element
                  divEL.append(newSmallDiv[0]);
 
@@ -59,6 +53,7 @@ var divEL = $("#recipeResults");
                  newSmallDiv[0].append(h3El[0]);
 }
 }) 
+
 	// if there is an error with query catch it and console log
  	.catch(err => console.error(err));
 }
@@ -70,8 +65,8 @@ $(`#user-form`).submit(function(event){
     var recipeText = $('#recipeSearch').val();
     //takes value and starts search function
     console.log(recipeText);
-    createRecipes(`${recipeText}`);
-    recipeText = "";
+    return createRecipes(`${recipeText}`);
+    //recipeText = "";
 })  
 
 console.log($("#user-form"));
@@ -90,7 +85,7 @@ console.log($("#user-form"));
 
 //         });
         
-    
+ createRecipes("beef");   
 
 
 
