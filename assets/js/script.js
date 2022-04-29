@@ -18,7 +18,7 @@ var divEL = $("#recipeResults");
     //Function to pull recipes from data base
     var createRecipes = function(choice){
         
-
+        debugger;
         // url for the recipe database
         var recipeApiUrl = `https://edamam-recipe-search.p.rapidapi.com/search?q=${choice}`;
 
@@ -64,45 +64,34 @@ var divEL = $("#recipeResults");
 }
 
 //event listener function for form field
-var starteventListener = function(){
-    // listen for the click on the search form button
-    $(`${clickHandlerText}`).submit(function(event){
+$(`#user-form`).submit(function(event){
+    
     //get the value from the search field
     var recipeText = $('#recipeSearch').val();
     //takes value and starts search function
+    console.log(recipeText);
     createRecipes(`${recipeText}`);
     recipeText = "";
-
-
-
 })  
-}
 
-// listener for button click adds code for search field
-$('#heroSectionContainer').click(function(event){
-    // set event target to variable
-    var event = event.target;
+console.log($("#user-form"));
+
+// // listener for button click adds code for search field
+// $('#heroSectionContainer').click(function(event){
+//     // set event target to variable
+//     var event = event.target;
    
-    // if the event id equal to #searchRecBtn
-    if(event.id === "searchRecBtn"){
-    // Clear out any html elements in the divEL
-        divEL.html("");
-    }
-        clickHandlerText = "#user-form";
-        
+//     // if the event id equal to #searchRecBtn
+//     if(event.id === "searchRecBtn"){
+//     // Clear out any html elements in the divEL
+//         divEL.html("");
+//     }
+//         clickHandlerText = "#user-form";
 
-        
-        // select row div container holder the two search fields
-        var newDiv = $('div[class="row-div row"]');
-        //append the div that houses pictures to the two classes 
-         newDiv.append(divEL[0]);
-        // starts new event listener function
-        return starteventListener();
-
-        }
+//         });
         
     
-    });
+
 
 
 
