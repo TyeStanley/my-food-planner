@@ -65,6 +65,7 @@ $(`#user-form`).submit(function(event){
     var recipeText = $('#recipeSearch').val();
     //takes value and starts search function
     console.log(recipeText);
+    event.preventDefault();
     return createRecipes(`${recipeText}`);
     //recipeText = "";
 })  
@@ -85,7 +86,7 @@ console.log($("#user-form"));
 
 //         });
         
- createRecipes("beef");   
+
 
 
 

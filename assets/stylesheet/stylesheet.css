@@ -1,31 +1,16 @@
 
 
-
-
-
-
-
-
-
-body {
-    box-sizing: border-box;
-    width: 100%;
-}
-/* Header and hero image section */
-header {
-    background-color:rgb(23, 220, 227);
-    text-align:center;
-}
-
 #siteHeader {
     font-size: 50px;
     font-weight: bold;
+    text-align:center;
 }
 .formLabel{
+    
     font-size: 29px;
     font-weight: bolder;
     color: white;
-    text-shadow:  1px 1px 5px #000000;
+    text-shadow:  2px 2px 2px #000000;
 
 }
 
@@ -34,7 +19,7 @@ header {
 .navbar{
     background: rgb(141,135,65);
     background: linear-gradient(90deg, rgb(162 117 57) 0%, rgb(198 172 24) 0%, rgb(208 208 208) 0%, rgb(222 197 175) 46%, rgb(220 219 219) 100%, rgba(155,255,222,1) 100%, rgba(0,0,0,1) 100%);
-    box-shadow: 1px 10px 25px #000000;
+    box-shadow: 1px 5px 20px #333232;
     
 }
 .navBarText{
