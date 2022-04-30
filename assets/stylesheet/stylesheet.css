@@ -1,5 +1,7 @@
 
-
+#heroSectionContainer{
+    margin-top: 15px;
+}
 #siteHeader {
     font-size: 50px;
     font-weight: bold;
@@ -22,21 +24,22 @@
 /*NavBar CSS */
 .navbar{
     background-color: #683f2870;
-    background: linear-gradient(90deg, rgb(218, 158, 79) 0%, rgb(207 191 104 / 44%) 0%, rgb(144 144 144) 0%, rgb(255 183 136 / 58%) 46%, rgb(59 164 45) 100%, rgba(155,255,222,1) 100%, rgba(0,0,0,1) 100%); 
-    box-shadow: 1px 2px 15px #333232;
+    background: linear-gradient(90deg, rgb(218, 158, 79) 0%, rgb(207 191 104 / 0%) 0%, rgb(10 10 10 / 0%) 0%, rgb(238 234 232 / 31%) 46%, rgb(116 218 103 / 75%) 100%, rgb(118 182 161 / 66%) 100%, rgba(0,0,0,1) 100%); 
+    box-shadow:  1px 1px 3px #33323270;
+    
     
 }
 .navBarText{
-    color: #e8e8e8;
+    color: #ffffff;
     font-weight:bold;
-    font-size:26px;
+    font-size:29px;
     text-shadow: 2px 1px 5px #000000;
 }
 .navBarH1{
-    color: #e8e8e8;
+    color: #ffffff;
     font-weight: bolder;
     font-size: 30px;
-    text-shadow: 2px 1px 5px #000000;
+    text-shadow: 3px 1px 5px #000000;
 }
 
 
@@ -50,7 +53,7 @@
     background-size: cover;
     width: 100%;
     height: 100%;
-    box-shadow: 5px 5px 15px #000000;
+    box-shadow:  5px 5px 15px #000000;
 }
 
 
@@ -70,13 +73,11 @@
 
 #user-form{
     text-align:center;
-    background: #0000002b;
-    border:solid 1px grey;
-    border-radius: 10px;
+    background: #0000000d;
     height: 100%;
     margin-top: 10px;
     padding: 50px;
-    box-shadow: 20px 20px 55px #404040; 
+    box-shadow: inset 1px 1px 1px #404040; 
     
 }
 .pickBtn{
