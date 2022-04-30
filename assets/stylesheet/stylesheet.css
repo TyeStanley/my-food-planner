@@ -15,14 +15,14 @@
 
 }
 .hero-body{
-    height: 500px;
+    height: 700px;
 }
 
 
 /*NavBar CSS */
 .navbar{
     background-color: #683f2870;
-/*     background: linear-gradient(90deg, rgb(162 117 57) 0%, rgb(198 172 24) 0%, rgb(171 171 171 / 68%) 0%, rgb(180 255 213 / 58%) 46%, rgb(234 241 199) 100%, rgba(155,255,222,1) 100%, rgba(0,0,0,1) 100%); */
+    background: linear-gradient(90deg, rgb(218, 158, 79) 0%, rgb(207 191 104 / 44%) 0%, rgb(144 144 144) 0%, rgb(255 183 136 / 58%) 46%, rgb(59 164 45) 100%, rgba(155,255,222,1) 100%, rgba(0,0,0,1) 100%); 
     box-shadow: 1px 2px 15px #333232;
     
 }
@@ -121,14 +121,15 @@
 
 #dayOfWeekCard{
     border: 2px solid black;
+    border-radius: 10px;
     margin-right: 50px;
     margin-top: 50px;
-    box-shadow: 5px 40px 30px #000000;
+    box-shadow: 1px 50px 30px #000000;
     
   
     
 }
 
 #dayOfWeekSec{
-    background-color: #683f2870;
+    background-color: #683f2833;
 }
