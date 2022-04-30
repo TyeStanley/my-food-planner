@@ -32,6 +32,7 @@ var createRecipes = function(choice){
             //setting variable for recipe length
             var tenRecipes = 8;
             divEL.html("");
+            
             // loop through the data using the desired length
             for(var i = 0 ; i < tenRecipes; i++){
              
@@ -42,7 +43,7 @@ var createRecipes = function(choice){
                  //append food imaged div to div container element
                  divEL.append(newSmallDiv[0]);
 
-                 // divel might need [0]
+                 
                  
                  
                 //create an h3 element and set a class to element
@@ -52,6 +53,8 @@ var createRecipes = function(choice){
                  //append to photo div
                  newSmallDiv[0].append(h3El[0]);
 }
+$('#recipeSearch').val("");
+     
 }) 
 
 	// if there is an error with query catch it and console log
@@ -64,30 +67,12 @@ $(`#user-form`).submit(function(event){
     //get the value from the search field
     var recipeText = $('#recipeSearch').val();
     //takes value and starts search function
-    console.log(recipeText);
+    createRecipes(`${recipeText}`);
     event.preventDefault();
-    return createRecipes(`${recipeText}`);
-    //recipeText = "";
+    
+    
+    
 })  
-
-console.log($("#user-form"));
-
-// // listener for button click adds code for search field
-// $('#heroSectionContainer').click(function(event){
-//     // set event target to variable
-//     var event = event.target;
-   
-//     // if the event id equal to #searchRecBtn
-//     if(event.id === "searchRecBtn"){
-//     // Clear out any html elements in the divEL
-//         divEL.html("");
-//     }
-//         clickHandlerText = "#user-form";
-
-//         });
-        
-
-
 
 
 

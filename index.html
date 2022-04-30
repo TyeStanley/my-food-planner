@@ -12,67 +12,57 @@
     <title>Weekly Food Planner</title>
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="">
-        <!-- <div class="filter">
-            <h1 id="siteHeader" class="p-4">WEEKLY FOOD PLANNER</h1>
-          
-        </div> -->
+<!-------------------------------------------------- Header Section ---------------------------------->
+    <header class="mainHeader">
+        <!-- Main navbar-->
         <nav class="navbar" role="navigation" aria-label="main navigation">
+        <!-- nav bar title -->
             <div  class="navbar-brand brand">
               <a class="navbar-item">
                 <h1 class="navBarH1">Weekly Food Planner</h1>
               </a>
-          
-              <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-              </a>
-            </div>
-          
+        <!-- Nav Bar links -->
             <div id="navbarBasicExample" class="navbar-menu">
               <div class="navbar-start">
                 <a class="navbar-item navBarText">
                   Home
                 </a>
-          
                 <a class="navbar-item navBarText">
                   Footer
                 </a>
-          
-             
-          
-              
-    </header>
-    <!-- End of Header Section -->
+              </div>
+            </div>
+        </div>
+    </nav>   
+</header>
+<!------------------- End of Header Section----------------------------------------------------------->
 
-    <!-- Main Section -->
-    <main class="">
-
-        <!-- Hero Section -->
-        <section id="hero" class="hero">
-            <!-- Hero Body Section-->
-            <div class="hero-body">
-                <!-- Content from hero form -->
-                <div id="heroSectionContainer" class="container columns">
-                    <!-- Hero Form -->
+<!--------------------- Main Section ----------------------------------------------------------------->
+<main class="mainSection">
+<!-- Hero Section -->
+<section id="hero" class="hero">
+    <!-- Hero Body Section-->
+    <div class="hero-body">
+         <!-- Content from hero form -->
+            <div id="heroSectionContainer" class="container columns">
+                <!-- Hero Form -->
                     <form id="user-form" class="field column is-one-quarter">
+                        <!-- Form Label-->
                         <label class="formLabel" for="foodType">
                             <p>Search For Recipes:</p>
                         </label>
+                        <!-- Input Text Box -->
                         <input class="input" type="text" placeholder="Search a Recipe" name="foodType" id="recipeSearch" />
+                        <!-- form submit button -->
                         <button id ="searchRecBtn" class="button is-normal is-responsive" type="submit">Search</button>
                     </form>
-                    <div id="recipeResults" class="column is-full columns is-flex-wrap-wrap">
-                        
-                    </div>
-                    
+                    <!-- Empty column to house recipe results-->
+                    <div id="recipeResults" class="column is-full columns is-flex-wrap-wrap"></div>
                     </div>
                 </div>
-            </section>
-      
-    </main>
+    </section>
+<!---------------------------------END OF HERO SECTION ------------------------------------------->
+</main>
     <!-- End of Main Section -->
 
     <!-- Footer Section -->

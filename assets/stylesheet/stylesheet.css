@@ -7,18 +7,22 @@
 }
 .formLabel{
     
-    font-size: 29px;
+    font-size: 32px;
     font-weight: bolder;
-    color: #eceaea;
-    text-shadow:  2px 2px 2px #000000;
+    color: #ffffff;
+    text-shadow:  2px 2px 10px black;
+   
 
+}
+.hero-body{
+    height: 500px;
 }
 
 
 /*NavBar CSS */
 .navbar{
     background: rgb(141,135,65);
-    background: linear-gradient(90deg, rgb(162 117 57) 0%, rgb(198 172 24) 0%, rgb(205 206 202) 0%, rgb(237 224 204 / 58%) 46%, rgb(255 255 255) 100%, rgba(155,255,222,1) 100%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(90deg, rgb(162 117 57) 0%, rgb(198 172 24) 0%, rgb(171 171 171 / 68%) 0%, rgb(180 255 213 / 58%) 46%, rgb(234 241 199) 100%, rgba(155,255,222,1) 100%, rgba(0,0,0,1) 100%);
     box-shadow: 1px 2px 15px #333232;
     
 }
@@ -48,9 +52,7 @@
     box-shadow: 5px 5px 15px #000000;
 }
 
-#recipeResults{
-    height: 100%;
-}
+
 
 .newDiv{
     background-position: center;
@@ -64,6 +66,17 @@
     
 }
 
+#user-form{
+    text-align:center;
+    background: #0000002b;
+    border:solid 1px grey;
+    border-radius: 10px;
+    height: 100%;
+    margin-top: 10px;
+    padding: 50px;
+    box-shadow: 20px 20px 55px #404040; 
+    
+}
 .pickBtn{
     padding: 20px;
     border-radius: 15px;
