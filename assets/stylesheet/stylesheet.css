@@ -21,8 +21,8 @@
 
 /*NavBar CSS */
 .navbar{
-    background: rgb(141,135,65);
-    background: linear-gradient(90deg, rgb(162 117 57) 0%, rgb(198 172 24) 0%, rgb(171 171 171 / 68%) 0%, rgb(180 255 213 / 58%) 46%, rgb(234 241 199) 100%, rgba(155,255,222,1) 100%, rgba(0,0,0,1) 100%);
+    background-color: #683f2870;
+/*     background: linear-gradient(90deg, rgb(162 117 57) 0%, rgb(198 172 24) 0%, rgb(171 171 171 / 68%) 0%, rgb(180 255 213 / 58%) 46%, rgb(234 241 199) 100%, rgba(155,255,222,1) 100%, rgba(0,0,0,1) 100%); */
     box-shadow: 1px 2px 15px #333232;
     
 }
@@ -117,4 +117,18 @@
     opacity:1;
     -webkit-transition: opacity .25s ease-in-out .0s;
     transition: opacity .25s ease-in-out .0s;
+}
+
+#dayOfWeekCard{
+    border: 2px solid black;
+    margin-right: 50px;
+    margin-top: 50px;
+    box-shadow: 5px 40px 30px #000000;
+    
+  
+    
+}
+
+#dayOfWeekSec{
+    background-color: #683f2870;
 }
