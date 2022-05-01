@@ -32,8 +32,8 @@ var draggableUnit = function(){
         var dropped = ui.draggable;
         var droppedOn = $(this);
         $(droppedOn).html("");
-        $(dropped).detach().removeClass("col-3 newDiv ui-draggable ui-droppable").addClass("dropDiv").appendTo(droppedOn);
-      
+        $(dropped).detach().removeClass("column is-one-fifth newDiv ui-draggable ui-droppable").addClass("image is-4by3 figureImg").appendTo(droppedOn);
+        $('.recipeH3').addClass("recipeH3Active");
       
       
      
@@ -42,11 +42,10 @@ var draggableUnit = function(){
 
         
         
-        .css("background-size","cover")
+        
+        $('.recipeH3').addClass("recipeH3Active");
 
-        .css("background-position","center")
-
-        //$(".newDiv").remove();
+        $(".newDiv").remove();
     }
         
           
@@ -78,7 +77,7 @@ var createRecipes = function(choice){
             for(var i = 0 ; i < tenRecipes; i++){
              
             //create a new div element to hold the pictures from the recipes
-             var newSmallDiv = $("<div>").addClass('column is-one-fifth newDiv');
+             var newSmallDiv = $("<figure>").addClass('column is-one-fifth newDiv image');
                  newSmallDiv.attr("id", "draggable");
                 //take the new div and set its background image to the picture of the food and cover the full div.
                  newSmallDiv.attr('style',`background-image:url(${data.hits[i].recipe.image})`);
