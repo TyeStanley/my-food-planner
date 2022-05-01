@@ -13,8 +13,49 @@ const options = {
 
 //Select the recipe results sections
 var divEL = $("#recipeResults");
-//var clickHandlerText = ".YouChooseDiv";
+var draggableUnit = function(){
+  
+ 
+  
+  $( ".newDiv" ).draggable({
+    helper: "clone",
+    scroll: true,
+    scrollSensitivity: 100,
+    scrollSpeed: 25,
+    snap: true
 
+      
+    
+  });
+  $( ".droppable" ).droppable({
+    drop: function( event, ui ) {
+        var dropped = ui.draggable;
+        var droppedOn = $(this);
+        $(droppedOn).html("");
+        $(dropped).detach().removeClass("col-3 newDiv ui-draggable ui-droppable").addClass("dropDiv").appendTo(droppedOn);
+      
+      
+      
+     
+      
+      $( this )
+
+        
+        
+        .css("background-size","cover")
+
+        .css("background-position","center")
+
+        //$(".newDiv").remove();
+    }
+        
+          
+  });
+
+        
+      
+
+};
 //Function to pull recipes from data base
 var createRecipes = function(choice){
         // url for the recipe database
@@ -38,14 +79,11 @@ var createRecipes = function(choice){
              
             //create a new div element to hold the pictures from the recipes
              var newSmallDiv = $("<div>").addClass('column is-one-fifth newDiv');
+                 newSmallDiv.attr("id", "draggable");
                 //take the new div and set its background image to the picture of the food and cover the full div.
                  newSmallDiv.attr('style',`background-image:url(${data.hits[i].recipe.image})`);
                  //append food imaged div to div container element
                  divEL.append(newSmallDiv[0]);
-
-                 
-                 
-                 
                 //create an h3 element and set a class to element
                  var h3El =$('<h3>').addClass('recipeH3');
                  // set the text of h2 to the recipe label
@@ -54,7 +92,7 @@ var createRecipes = function(choice){
                  newSmallDiv[0].append(h3El[0]);
 }
 $('#recipeSearch').val("");
-     
+  return draggableUnit();   
 }) 
 
 	// if there is an error with query catch it and console log
@@ -68,11 +106,9 @@ $(`#user-form`).submit(function(event){
     var recipeText = $('#recipeSearch').val();
     //takes value and starts search function
     createRecipes(`${recipeText}`);
-    event.preventDefault();
-    
-    
-    
-})  
+    event.preventDefault();  
+}) 
+
 
 
 
