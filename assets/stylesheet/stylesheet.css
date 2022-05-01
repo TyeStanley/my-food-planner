@@ -26,14 +26,13 @@
     text-align:center;
 }
 /*HERO SECTION CODE */
-#heroSectionContainer{
-    margin-top: 6%;
-}
+
 .hero-body{
-    height: 800px;
+    height: 750px;
+    margin-top: 2%;
 }
 #hero {
-    
+    overflow:hidden;
     background-color: black;
     background-image: url(../images/todd-quackenbush-x5SRhkFajrA-unsplash.jpg);
     background-position: center;
@@ -90,7 +89,7 @@
     height: 190px;
     background-size: cover;
     border-radius: 10px;
-    margin-left: 18px;
+    margin-left: 5px;
     margin-top: 10px;
     border: 1px solid black;
     box-shadow: 20px 20px 55px #404040; 
@@ -119,7 +118,7 @@
     top: 2px;
 }
 /* DAY OF WEEK BUTTONS AND CARDS */
-#dayOfWeekCard{
+.dayOfWeekCard{
     border: 1px solid black;
     background-color: #ffffffcc;
     border-radius: 10px;
@@ -144,7 +143,7 @@
     border: 1px solid #0000004d;
     box-shadow:inset 1px 2px 3px #000000;
     text-shadow: 2px 1px 5px #000000;
-    margin-left: 4%;
+    margin-left: 2%;
     font-weight: bolder;
 }
 .daysBtns:hover{
@@ -171,6 +170,7 @@
     
 }
 
+
 .figureImg{
     background-size: cover;
     background-position:center;
@@ -179,3 +179,15 @@
     border-radius: 10px;
     box-shadow: 1px 1px 10px black inset;
 }
+
+.btnSnap{
+    width: 21.5% !important;
+    position:absolute;
+    top: 350px;
+    left: 30px;
+    background-color: #ffffff;
+    margin-left: -15px;
+    margin-top: -40px;
+
+}
+    

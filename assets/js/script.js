@@ -6,26 +6,17 @@ const options = {
 	}
 };
 
-
-
-
-
-
 //Select the recipe results sections
 var divEL = $("#recipeResults");
+
+// Drag and drop function
 var draggableUnit = function(){
-  
- 
-  
   $( ".newDiv" ).draggable({
     helper: "clone",
     scroll: true,
     scrollSensitivity: 100,
     scrollSpeed: 25,
-    snap: true
-
-      
-    
+    snap: true 
   });
   $( ".droppable" ).droppable({
     drop: function( event, ui ) {
@@ -34,32 +25,20 @@ var draggableUnit = function(){
         $(droppedOn).html("");
         $(dropped).detach().removeClass("column is-one-fifth newDiv ui-draggable ui-droppable").addClass("image is-4by3 figureImg").appendTo(droppedOn);
         $('.recipeH3').addClass("recipeH3Active");
-      
-      
-     
-      
       $( this )
-
-        
-        
-        
         $('.recipeH3').addClass("recipeH3Active");
 
         $(".newDiv").remove();
     }
-        
-          
+    
   });
-
-        
-      
 
 };
 //Function to pull recipes from data base
 var createRecipes = function(choice){
         // url for the recipe database
         var recipeApiUrl = `https://edamam-recipe-search.p.rapidapi.com/search?q=${choice}`;
-        debugger;
+        
 
         //Fetch call to database to find recipes based on query
         fetch(recipeApiUrl, options).then(function(response){
@@ -107,7 +86,58 @@ $(`#user-form`).submit(function(event){
     createRecipes(`${recipeText}`);
     event.preventDefault();  
 }) 
+var currentDay;
+// LISTENER FOR CLICKS IN CARD SECTION 
+$(`#dayOfWeekSec`).click(function(event){
+  // event target variable
+  var event = event.target;
+  // day of week class buttons
+  var dayOfWeekBtns = event.classList.contains('daysBtns')
+// if dat of the week button is selected and the event id isn't == to the previous one
+  if(dayOfWeekBtns && event.id != currentDay){
+   // select the card element with the same id and bring it up to the top
+    $(`div[data-day=${event.id}]`).removeClass('dayOfWeekCard').addClass("btnSnap")
+    return  currentDay = event.id;
+  }
+//return element back to location
+  else{ $(`div[data-day=${event.id}]`).removeClass('btnSnap').addClass("dayOfWeekCard")
+        return currentDay = "";
+}
 
+
+        
+ 
+
+  
+
+  
+})
+
+
+
+function touchHandler(event) {
+  var touch = event.changedTouches[0];
+
+  var simulatedEvent = document.createEvent("MouseEvent");
+      simulatedEvent.initMouseEvent({
+      touchstart: "mousedown",
+      touchmove: "mousemove",
+      touchend: "mouseup"
+  }[event.type], true, true, window, 1,
+      touch.screenX, touch.screenY,
+      touch.clientX, touch.clientY, false,
+      false, false, false, 0, null);
+
+  touch.target.dispatchEvent(simulatedEvent);
+  event.preventDefault();
+}
+
+function init() {
+  document.addEventListener("touchstart", touchHandler, true);
+  document.addEventListener("touchmove", touchHandler, true);
+  document.addEventListener("touchend", touchHandler, true);
+  document.addEventListener("touchcancel", touchHandler, true);
+}
 
 
 
