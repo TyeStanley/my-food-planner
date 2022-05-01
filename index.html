@@ -26,7 +26,7 @@
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-end">
           <a href="#" class="navbar-item navBarText">Home</a>
-          <a href="#" class="navbar-item navBarText">Footer</a>
+          <a href="#footerContainer" class="navbar-item navBarText">Footer</a>
         </div>
       </div>
     
@@ -67,7 +67,7 @@
 <section class="section" id="dayOfWeekSec">
 
   <!-- EACH DAY BUTTON -->
-  <div class="daysBtnsDiv columns container is-justify-content-center">
+  <div class="columns is-justify-content-center is-justify-content-space-between is-hidden-mobile">
     <button class="button daysBtns column is-2">Monday</button>
     <button class="button daysBtns column is-2">Tuesday</button>
     <button class="button daysBtns column is-2">Wednesday</button>
@@ -77,10 +77,10 @@
   <!-- END OF EACH DAY BUTTON -->
   
   <!-- DAYS OF THE WEEK CONTAINER -->
-  <div id="dayOfWeekContainer" class="columns is-flex  is-justify-content-center is-align-items-center is-flex-wrap-wrap">
+  <div id="dayOfWeekContainer" class="columns is-justify-content-space-around is-flex-wrap-wrap">
 
     <!-- MONDAY RECIPE -->
-    <div id="dayOfWeekCard" class="card column is-3">
+    <div id="dayOfWeekCard" class="card column is-4">
       <div class="card-image classImage">
         <figure class="image is-4by3">
                 
@@ -102,7 +102,7 @@
     <!-- END OF MONDAY RECIPE -->
 
     <!-- TUESDAY RECIPE -->
-    <div id="dayOfWeekCard" class="card column is-3">
+    <div id="dayOfWeekCard" class="card column is-4">
       <div class="card-image classImage">
         <figure class="image is-4by3">
             
@@ -124,7 +124,7 @@
     <!-- END OF TUESDAY RECIPE -->
 
     <!-- WEDNESDAY RECIPE -->
-    <div id="dayOfWeekCard" class="card column is-3">
+    <div id="dayOfWeekCard" class="card column is-4">
       <div class="card-image classImage">
         <figure class="image is-4by3">
             
@@ -146,7 +146,7 @@
     <!-- END OF WEDNESDAY RECIPE -->
 
     <!-- THURSDAY RECIPE -->
-    <div id="dayOfWeekCard" class="card column is-3">
+    <div id="dayOfWeekCard" class="card column is-4">
       <div class="card-image classImage">
         <figure class="image is-4by3">
             
@@ -168,7 +168,7 @@
     <!-- END OF THURSDAY RECIPE -->
 
     <!-- FRIDAY RECIPE -->
-    <div id="dayOfWeekCard" class="card column is-3">
+    <div id="dayOfWeekCard" class="card column is-4">
       <div class="card-image classImage">
         <figure class="image is-4by3">
             
@@ -190,7 +190,7 @@
     <!-- END OF FRIDAY RECIPE -->
 
     <!-- GROCERY LIST -->
-    <div id="dayOfWeekCard" class="card column is-3">
+    <div id="dayOfWeekCard" class="card column is-4">
       <div class="card-image">
         <h3>Grocery List</h3>
       </div>
@@ -221,8 +221,8 @@
 <footer>
   <section id="footerContainer" class="columns is-flex is-justify-content-center is-align-items-center is-flex-wrap-wrap">
     <div class="footSections card column is-3">
-      <h3 class="footHeader">DEVELOPERS:</h3>
-      <ul class="listOfDev">
+      <h3 class="footHeader">DEVELOPERS</h3>
+      <ul class="listOfDev is-justify-content-center">
         <a href="#"><li class="devNames">Tye Stanley</li></a>
         <a href="#"><li class="devNames">Scott Heier</li></a>
         <a href="#"><li class="devNames">Gracie Navarro</li></a>
@@ -230,10 +230,9 @@
       </ul>
     </div>
 
-    <div class="footSections card column is-3"></div>
-    <div class="footSections card column is-3"></div>
+    <div class="footSections card column is-4"></div>
+    <div class="footSections card column is-4"></div>
   </section>
-
 
 </footer>
 <!---------------------------------END OF FOOTER SECTION ----------------------------------------->
