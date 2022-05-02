@@ -32,7 +32,6 @@
     margin-top: 2%;
 }
 #hero {
-    overflow:hidden;
     background-color: black;
     background-image: url(../images/todd-quackenbush-x5SRhkFajrA-unsplash.jpg);
     background-position: center;
@@ -84,7 +83,7 @@
  }
 /* RECIPE DIV AND ITEMS */
 .newDiv{
-    z-index: 2;
+    z-index: 30;
     background-position: center;
     height: 190px;
     background-size: cover;
@@ -119,6 +118,7 @@
 }
 /* DAY OF WEEK BUTTONS AND CARDS */
 .dayOfWeekCard{
+   
     border: 1px solid black;
     background-color: #ffffffcc;
     border-radius: 10px;
