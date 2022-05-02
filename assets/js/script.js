@@ -33,12 +33,11 @@ var draggableUnit = function(){
       
         $('.recipeH3').addClass("recipeH3Active");
         // adds recipe link dynamicly to the card dropped on
-        $(droppedOn[0].parentNode.childNodes[3].childNodes[1].childNodes[1].childNodes[1].childNodes[0]).attr({href : `${currentData.hits[i].recipe.url}`,
+        $(droppedOn[0].parentNode.childNodes[3].childNodes[1].childNodes[1].childNodes[3].childNodes[0]).attr({href : `${currentData.hits[i].recipe.url}`,
                                                                                                                target: "_blank" 
         });
         findIngredients(i, droppedOn);
-        console.log(droppedOn[0].parentNode.childNodes[3].childNodes[3].childNodes[1]);
-        console.log(currentData);
+        
         $(".newDiv").remove();
     }
     
