@@ -156,15 +156,13 @@
 /* END OF DAY OF WEEK BUTTONS AND CARDS */
 
 /* FOOTER SECTION */
-footer {
+.footer {
     background-color: #433630;
 }
 .footSections {
     border: 1px solid black;
     background-color: #ffffff;
     border-radius: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
     box-shadow: 1px 20px 30px #000000;
     font-size: 20px;
     margin-left: 10px;
