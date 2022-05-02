@@ -147,6 +147,11 @@
     margin-left: 2%;
     font-weight: bolder;
 }
+.dayCard{
+    font-size: 35px;
+    font-weight: bolder;
+    color: black;
+}
 .daysBtns:hover{
    
     
