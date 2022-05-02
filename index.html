@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=100, initial-scale=1.0" />
     <!-- Links for CSS / FONTS / ICONS -->
+    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./assets/stylesheet/stylesheet.css" />
@@ -43,7 +44,7 @@
          <!-- Content from hero form -->
             <div id="heroSectionContainer" class="container columns">
                 <!-- Hero Form -->
-                    <form id="user-form" class="field column is-one-quarter">
+                    <form id="user-form" class="field column is-3">
                         <!-- Form Label-->
                         <label class="formLabel" for="foodType">
                             <p>Search For Recipes:</p>
@@ -54,7 +55,7 @@
                         <button id ="searchRecBtn" class="button is-normal is-responsive" type="submit">Search</button>
                     </form>
                     <!-- Empty column to house recipe results-->
-                    <div id="recipeResults" class="column is-full columns is-flex-wrap-wrap"></div>
+                    <div id="recipeResults" class="column is-11 columns is-flex-wrap-wrap"></div>
                     
                     </div>
 
@@ -97,6 +98,7 @@
           Phasellus nec iaculis mauris. 
           <br />     
         </div>
+ 
       </div>
     </div>
     <!-- END OF MONDAY RECIPE -->
