@@ -1,35 +1,32 @@
-
-/*NAV BAR CODE */
-.navbar{
+/* NAV BAR */
+.navbar {
     background-color: #683f2870;
     background: linear-gradient(90deg, rgb(218, 158, 79) 0%, rgb(163 149 72 / 0%) 0%, rgb(94 94 94 / 0%) 0%, rgb(255 255 255 / 2%) 46%, rgb(0 0 0 / 40%) 100%, rgb(118 182 161 / 92%) 100%, rgba(0,0,0,1) 100%); 
     box-shadow:  1px 2px 2px #000000;
-    
-    
 }
-.navBarText{
-    color: #ffffff;
-    font-weight:bold;
-    font-size:29px;
-    text-shadow: 2px 1px 5px #000000;
-}
-.navBarH1{
+.navBarH1 {
     color: #ffffff;
     font-weight: bolder;
     font-size: 30px;
     text-shadow: 3px 1px 5px #000000;
-    
 }
-#siteHeader {
-    font-size: 50px;
-    font-weight: bold;
-    text-align:center;
+.navBarText {
+    color: #ffffff;
+    font-weight:bold;
+    font-size:20px;
+    text-shadow: 2px 1px 5px #000000;
 }
-/*HERO SECTION CODE */
+.navBarText:hover {
+    color: #000000 !important; /* Wouldn't overwrite the :hover blue - forced hover black */
+}
+/* END OF NAV BAR */
 
-.hero-body{
-    height: 750px;
-    margin-top: 2%;
+/* HERO SECTION */
+#heroSectionContainer{
+    margin-top: 6%;
+}
+.hero-body {
+    height: 800px;
 }
 #hero {
     background-color: black;
@@ -38,52 +35,51 @@
     background-size: cover;
     width: 100%;
     height: 100%;
-    box-shadow:  5px 1px 15px #000000;
-    
+    box-shadow: 5px 1px 15px #000000;
 }
+/* END OF HERO SECTION */
+
 /* FORM */
-#user-form{
-    text-align:center;
+#user-form {
+    text-align: center;
     background: #00000014;
     height: 100%;
     margin-top: 10px;
-    box-shadow:  1px 1px 5px #000000; 
+    box-shadow: 1px 1px 5px #000000; 
     padding-bottom: 185px;
 }
-.formLabel{
-    
+.formLabel {
     font-size: 25px;
     font-weight: bolder;
     color: #f1f1f1;
-    text-shadow:  1px 2px 5px black;
+    text-shadow: 1px 2px 5px black;
 }
-.formLabel p{
+.formLabel p {
     margin-bottom: 25px;
-   
 }
-#recipeSearch{
+#recipeSearch {
     border: 1px solid black;
     height: 50px;
-    box-shadow:  1px 1px 30px #000000;
+    box-shadow: 1px 1px 30px #000000;
 }
-#recipeSearch:focus{
-    transform:scale(1.1);
+#recipeSearch:focus {
+    transform: scale(1.1);
 }
-#searchRecBtn{
+#searchRecBtn {
     margin-top: 10px;
     width: 100%;
-    padding: px;
+    padding: 10px;
     border: 1px solid black;
-    
 }
 #searchRecBtn:hover {
     background-color: #929191;
     color: white;
-     transform:scale(1.0);
- }
+    transform: scale(1.0);
+}
+/* END OF FORM */
+
 /* RECIPE DIV AND ITEMS */
-.newDiv{
-    z-index: 30;
+.newDiv { /* Does this not have anything for it? */
     background-position: center;
     height: 190px;
     background-size: cover;
@@ -92,9 +88,8 @@
     margin-top: 10px;
     border: 1px solid black;
     box-shadow: 20px 20px 55px #404040; 
-    
 }
-.recipeH3{
+.recipeH3 { /* Does this not have anything for it? */
     opacity:0;
     color: white;
     font-weight: bolder;
@@ -103,13 +98,11 @@
     background-size: cover;
     text-align: center;
     text-shadow: 3px 1px 5px #000000;
-    border: 1px solid blac;
+    border: 1px solid black;
     font-size: 30px;
- 
 }
-.recipeH3:hover{
-    opacity:1;
-  
+.recipeH3:hover {
+    opacity: 1;
 }
 .recipeH3Active{
     opacity: 1;
@@ -118,82 +111,94 @@
 }
 /* DAY OF WEEK BUTTONS AND CARDS */
 .dayOfWeekCard{
-   
     border: 1px solid black;
     background-color: #ffffffcc;
     border-radius: 10px;
-    margin-right: 50px;
     margin-top: 50px;
     box-shadow: 1px 10px 15px #000000;
-}
-#dayOfWeekSec{
-    background-color: #764422a6;
 }
 .daysBtnsDiv{
     margin-left: 7.5%;
     z-index: 20;
-   
 }
-.daysBtns{
+/* END OF RECIPE DIV AND ITEMS */
+
+/* DAY OF WEEK BUTTONS AND CARDS */
+/* DAYS BUTTON */
+#dayOfWeekSec{
+    background-color: #764422a6;
+}
+.daysBtns {
     color: white;
     font-size: 20px;
-    background-color: #2d2c2b;
-    width: 150px;
+    background-color: #00000000;
+    width: 100px;
     height: 60px;
     border-radius: 5px;
     border: 1px solid #0000004d;
     box-shadow:inset 1px 2px 3px #000000;
     text-shadow: 2px 1px 5px #000000;
-    margin-left: 2%;
     font-weight: bolder;
 }
-.dayCard{
-    font-size: 35px;
-    font-weight: bolder;
-    color: black;
-}
-.daysBtns:hover{
-   
-    
+.daysBtns:hover {
     color:white;
     box-shadow: 1px 1px 10px #000000;
+}
+/* END OF DAYS BUTTON */
+/* DAYS OF THE WEEK CARD */
+#dayOfWeekCard{
+    border: 1px solid black;
+    background-color: #ffffff;
+    width: 400px;
+    height: 500px;
+    border-radius: 10px;
+    margin-top: 50px;
+    box-shadow: 1px 20px 30px #000000;
 }
 .photoDiv{
     background-color: black;
 }
 .classImage{
-    
     background-position: center;
     background-size: cover;
     border: 1px solid #868686;
     border-radius: 5px;
-    height: 100%;
     width: 100%;
     box-shadow: inset 2px 1px 15px #000000; 
 }
-.cardImg{
-    height: 280px;
-    
+/* END OF THE WEEK CARD */
+/* END OF DAY OF WEEK BUTTONS AND CARDS */
+
+/* FOOTER SECTION */
+.footer {
+    background-color: #433630;
 }
-
-
-.figureImg{
-    background-size: cover;
-    background-position:center;
-    width: 100%;
-    Height: 100%;
-    border-radius: 10px;
-    box-shadow: 1px 1px 10px black inset;
-}
-
-.btnSnap{
-    width: 21.5% !important;
-    position:absolute;
-    top: 350px;
-    left: 30px;
+.footSections {
+    border: 1px solid black;
     background-color: #ffffff;
-    margin-left: -15px;
-    margin-top: -40px;
-
+    border-radius: 10px;
+    box-shadow: 1px 20px 30px #000000;
+    font-size: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #A6856F;
+    width: 33%;
 }
-
+.footHeader {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    text-decoration: underline;
+}
+.listOfDev {
+    font-size: 20px;
+}
+.listOfDev a {
+    color: black;
+    text-align: center;
+}
+.listOfDev a:hover {
+    color: white;
+}
+/* END OF FOOTER SECTION */
