@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=100, initial-scale=1.0" />
     <!-- Links for CSS / FONTS / ICONS -->
+    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./assets/stylesheet/stylesheet.css" />
@@ -29,38 +30,37 @@
           <a href="#footerContainer" class="navbar-item navBarText">Footer</a>
         </div>
       </div>
-    
   </nav>   
 </header>
 <!------------------- End of Header Section----------------------------------------------------------->
 
 <!--------------------- Main Section ----------------------------------------------------------------->
 <main class="mainSection">
-<!-- Hero Section -->
-<section id="hero" class="hero">
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+
     <!-- Hero Body Section-->
     <div class="hero-body">
-         <!-- Content from hero form -->
-            <div id="heroSectionContainer" class="container columns">
-                <!-- Hero Form -->
-                    <form id="user-form" class="field column is-one-quarter">
-                        <!-- Form Label-->
-                        <label class="formLabel" for="foodType">
-                            <p>Search For Recipes:</p>
-                        </label>
-                        <!-- Input Text Box -->
-                        <input class="input" type="text" placeholder="Search a Recipe" name="foodType" id="recipeSearch" />
-                        <!-- form submit button -->
-                        <button id ="searchRecBtn" class="button is-normal is-responsive" type="submit">Search</button>
-                    </form>
-                    <!-- Empty column to house recipe results-->
-                    <div id="recipeResults" class="column is-full columns is-flex-wrap-wrap"></div>
-                    
-                    </div>
+      <!-- Content from hero form -->
+      <div id="heroSectionContainer" class="container columns">
+        <!-- Hero Form -->
+        <form id="user-form" class="field column is-3">
+          <!-- Form Label-->
+          <label class="formLabel" for="foodType">
+            <p>Search For Recipes:</p>
+          </label>
+          <!-- Input Text Box -->
+          <input class="input" type="text" placeholder="Search a Recipe" name="foodType" id="recipeSearch" />
+          <!-- form submit button -->
+          <button id ="searchRecBtn" class="button is-normal is-responsive" type="submit">Search</button>
+        </form>
+        <!-- Empty column to house recipe results-->
+        <div id="recipeResults" class="column is-11 columns is-flex-wrap-wrap"></div> 
+      </div>
+    </div>
 
-                </div>
-
-    </section>
+  </section>
 <!---------------------------------END OF HERO SECTION ------------------------------------------->
 
 <!--------------------------------START OF DAYS OF THE WEEK -------------------------------------->
@@ -97,6 +97,7 @@
           Phasellus nec iaculis mauris. 
           <br />     
         </div>
+ 
       </div>
     </div>
     <!-- END OF MONDAY RECIPE -->
