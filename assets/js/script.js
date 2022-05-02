@@ -50,7 +50,7 @@ var findIngredients = function(i, droppedOn){
   recipeIngredients = [""];
   var ingredients = currentData.hits[i].recipe.ingredients;
   var title  = currentData.hits[i].recipe.label
-  var currentListEl = i;
+  var currentI = i;
   $(".groceryList").append(`<li class="groceryListTitle">Ingredients for: ${title}<ul class="li${i}"></ul></li>`);
   for(var i = 0; ingredients.length > i; i++){
 
@@ -58,7 +58,7 @@ var findIngredients = function(i, droppedOn){
     recipeIngredients.push(ingredients[i].text);
     $(droppedOn[0].parentNode.childNodes[3].childNodes[3].childNodes[1]).append(`<li class="cardListEl">${recipeIngredients[i + 1]}</li>`);
    
-    $(`.li${currentListEl}`).append(`<li class="groceryListLi>${recipeIngredients[i+1]}</li>`);
+    $(`.li${currentI}`).append(`<li>${recipeIngredients[i+1]}</li>`);
 
     
   }
@@ -169,8 +169,6 @@ function init() {
   document.addEventListener("touchend", touchHandler, true);
   document.addEventListener("touchcancel", touchHandler, true);
 }
-
-
 
 
 
