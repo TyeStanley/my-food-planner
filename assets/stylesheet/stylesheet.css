@@ -131,12 +131,13 @@
 }
 .daysBtnsDiv{
     margin-left: 7.5%;
+    z-index: 20;
    
 }
 .daysBtns{
     color: white;
     font-size: 20px;
-    background-color: #00000000;
+    background-color: #2d2c2b;
     width: 150px;
     height: 60px;
     border-radius: 5px;

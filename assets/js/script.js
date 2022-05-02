@@ -8,6 +8,8 @@ const options = {
 
 //Select the recipe results sections
 var divEL = $("#recipeResults");
+var currentData;
+var recipeIngredients=[""];
 
 // Drag and drop function
 var draggableUnit = function(){
@@ -21,19 +23,48 @@ var draggableUnit = function(){
   $( ".droppable" ).droppable({
     drop: function( event, ui ) {
         var dropped = ui.draggable;
+        var i = dropped[0].attributes[3].textContent;
         var droppedOn = $(this);
         $(droppedOn).html("");
         $(dropped).detach().removeClass("column is-one-fifth newDiv ui-draggable ui-droppable").addClass("image is-4by3 figureImg").appendTo(droppedOn);
         $('.recipeH3').addClass("recipeH3Active");
       $( this )
+        
+      
         $('.recipeH3').addClass("recipeH3Active");
-
+        // adds recipe link dynamicly to the card dropped on
+        $(droppedOn[0].parentNode.childNodes[3].childNodes[1].childNodes[1].childNodes[1].childNodes[0]).attr({href : `${currentData.hits[i].recipe.url}`,
+                                                                                                               target: "_blank" 
+        });
+        findIngredients(i, droppedOn);
+        console.log(droppedOn[0].parentNode.childNodes[3].childNodes[3].childNodes[1]);
+        console.log(currentData);
         $(".newDiv").remove();
     }
     
   });
 
 };
+
+var findIngredients = function(i, droppedOn){
+  recipeIngredients = [""];
+  var ingredients = currentData.hits[i].recipe.ingredients;
+  var title  = currentData.hits[i].recipe.label
+  var currentListEl = i;
+  $(".groceryList").append(`<li class="groceryListTitle">Ingredients for: ${title}<ul class="li${i}"></ul></li>`);
+  for(var i = 0; ingredients.length > i; i++){
+
+    // create an array of ingredients
+    recipeIngredients.push(ingredients[i].text);
+    $(droppedOn[0].parentNode.childNodes[3].childNodes[3].childNodes[1]).append(`<li class="cardListEl">${recipeIngredients[i + 1]}</li>`);
+   
+    $(`.li${currentListEl}`).append(`<li class="groceryListLi>${recipeIngredients[i+1]}</li>`);
+
+    
+  }
+
+  
+}
 //Function to pull recipes from data base
 var createRecipes = function(choice){
         // url for the recipe database
@@ -46,7 +77,8 @@ var createRecipes = function(choice){
         })
         .then(function(data){
           //console log the data options
-            console.log(data);
+            //console.log(data);
+            currentData = data;
 
             //setting variable for recipe length
             var tenRecipes = 8;
@@ -60,6 +92,7 @@ var createRecipes = function(choice){
                  newSmallDiv.attr("id", "draggable");
                 //take the new div and set its background image to the picture of the food and cover the full div.
                  newSmallDiv.attr('style',`background-image:url(${data.hits[i].recipe.image})`);
+                 newSmallDiv.attr('data',`${i}`);
                  //append food imaged div to div container element
                  divEL.append(newSmallDiv[0]);
                 //create an h3 element and set a class to element
@@ -93,28 +126,26 @@ $(`#dayOfWeekSec`).click(function(event){
   var event = event.target;
   // day of week class buttons
   var dayOfWeekBtns = event.classList.contains('daysBtns')
+
+
 // if dat of the week button is selected and the event id isn't == to the previous one
-  if(dayOfWeekBtns && event.id != currentDay){
+  if(dayOfWeekBtns   && event.id != currentDay){
    // select the card element with the same id and bring it up to the top
     $(`div[data-day=${event.id}]`).removeClass('dayOfWeekCard').addClass("btnSnap")
     return  currentDay = event.id;
   }
 //return element back to location
-  else{ $(`div[data-day=${event.id}]`).removeClass('btnSnap').addClass("dayOfWeekCard")
+  else if(dayOfWeekBtns){ $(`div[data-day=${event.id}]`).removeClass('btnSnap').addClass("dayOfWeekCard")
         return currentDay = "";
 }
-
-
-        
- 
-
-  
-
+  else{
+    return;
+}
   
 })
 
 
-
+// TOUCH SCREEN CONTROLLS SO DRAG AND DROP WORKS
 function touchHandler(event) {
   var touch = event.changedTouches[0];
 
@@ -138,6 +169,7 @@ function init() {
   document.addEventListener("touchend", touchHandler, true);
   document.addEventListener("touchcancel", touchHandler, true);
 }
+
 
 
 
