@@ -190,12 +190,26 @@ var loadSave = function(){
 }
 
 
-var textToPhone = function() {
+var textToEmail = function() {
 
+  const options = {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      'X-RapidAPI-Host': 'easymail.p.rapidapi.com',
+      'X-RapidAPI-Key': '75782cec53msh272191a679e4c13p1ef88bjsn0d39f3ec32a8'
+    },
+    body: '{"from":{"name":"Scott"},"to":{"name":"John Doe","address":"spartanheros_54@hotmail.com"},"subject":"testmessage","message":"Hello John, how are you ?","show_noreply_warning":true}'
+  };
+  
+  fetch('https://easymail.p.rapidapi.com/send', options)
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
 
   
 }
 
 
-textToPhone();
+textToEmail();
 loadSave();
