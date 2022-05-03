@@ -182,7 +182,6 @@
     margin-left: 10px;
     margin-right: 10px;
     background-color: #A6856F;
-    width: 33%;
 }
 .footHeader {
     font-size: 32px;
@@ -193,6 +192,11 @@
 }
 .listOfDev {
     font-size: 20px;
+}
+a li {
+    display: inline;
+    font-size: 16px;
+    letter-spacing: 1.2px;
 }
 .listOfDev a {
     color: black;

@@ -1,6 +1,6 @@
 # Weekly Food Planner
 
-Hello and welcome to our Weekly Food planner app. Our motivation for developing this web app is because we want to improve peoples lifes who don't have time to properly plan out a proper weekly meal. With a simple search you can find plenty of recipes that you can sort through and set up an automatic grocery list that would be instantly texted or emailed with the selection that you have chosen. Making your upcoming week a breeze.
+Hello and welcome to our app for weekly meal planning. We developed this web software because we want to enhance the lives of people who don't have time to adequately plan out a weekly meal. With a quick search, you may uncover a plethora of recipes to pick through and create an automatic grocery list that will be texted or sent to you with your selection. Making the forthcoming week go as well as possible.
 
 ## Installation 
 
