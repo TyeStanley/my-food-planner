@@ -14,214 +14,235 @@
 </head>
 <body>
 <!-------------------------------------------------- Header Section ---------------------------------->
-    <header class="mainHeader">
-        <!-- Main navbar-->
-        <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-        <!-- nav bar title -->
-            <div  class="navbar-brand brand">
-              <a class="navbar-item">
-                <h1 class="navBarH1">My Food Planner</h1>
-              </a>
-        <!-- Nav Bar links -->
-            <div id="navbarBasicExample" class="navbar-menu">
-              <div class="navbar-start">
-                <a class="navbar-item navBarText">
-                  Home
-                </a>
-                <a class="navbar-item navBarText">
-                  Footer
-                </a>
-              </div>
-            </div>
-        </div>
-    </nav>   
+<header>
+  <!-- Main navbar-->
+  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <!-- nav bar title -->
+    <div class="navbar-brand brand">
+      <a class="navbar-item">
+        <h1 class="navBarH1">My Food Planner</h1>
+      </a>
+    </div>
+    <!-- Nav Bar links -->
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-end">
+        <a href="#" class="navbar-item navBarText">Home</a>
+        <a href="#footerContainer" class="navbar-item navBarText">Footer</a>
+      </div>
+    </div>
+  </nav>   
 </header>
-<!------------------- End of Header Section----------------------------------------------------------->
+  <!----------------- End of Header Section----------------------------------------------------------->
 
-<!--------------------- Main Section ----------------------------------------------------------------->
+  <!------------------- Main Section ----------------------------------------------------------------->
 <main class="mainSection">
-<!-- Hero Section -->
-<section id="hero" class="hero">
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+
     <!-- Hero Body Section-->
     <div class="hero-body">
-         <!-- Content from hero form -->
-            <div id="heroSectionContainer" class="container columns">
-                <!-- Hero Form -->
-                    <form id="user-form" class="field column is-3">
-                        <!-- Form Label-->
-                        <label class="formLabel" for="foodType">
-                            <p>Search For Recipes:</p>
-                        </label>
-                        <!-- Input Text Box -->
-                        <input class="input" type="text" placeholder="Search a Recipe" name="foodType" id="recipeSearch" />
-                        <!-- form submit button -->
-                        <button id ="searchRecBtn" class="button is-normal is-responsive" type="submit">Search</button>
-                    </form>
-                    <!-- Empty column to house recipe results-->
-                    <div id="recipeResults" class="column is-11 columns is-flex-wrap-wrap"></div>
-                    
-                    </div>
-
-                </div>
-
-    </section>
-<!---------------------------------END OF HERO SECTION ------------------------------------------->
-<!--------------------------------START OF DAYS OF THE WEEK -------------------------------------->
-
-<section class="section" id="dayOfWeekSec">
-    <div class="daysBtnsDiv columns container">
-      <button id="monday" class="button daysBtns column is-2">Monday</button>
-      <button id="tuesday"class="button daysBtns column is-2">Tuesday</button>
-      <button id="wednesday" class="button daysBtns column is-2">Wednesday</button>
-      <button id="thursday" class="button daysBtns column is-2">Thursday</button>
-      <button id="friday" class="button daysBtns column is-2">Friday</button>
+      <!-- Content from hero form -->
+      <div id="heroSectionContainer" class="container columns">
+        <!-- Hero Form -->
+        <form id="user-form" class="field column is-3">
+          <!-- Form Label-->
+          <label class="formLabel" for="foodType">
+            <p>Search For Recipes:</p>
+          </label>
+          <!-- Input Text Box -->
+          <input class="input" type="text" placeholder="Search a Recipe" name="foodType" id="recipeSearch" />
+          <!-- form submit button -->
+          <button id="searchRecBtn" class="button is-normal is-responsive" type="submit">Search</button>
+        </form>
+        <!-- Empty column to house recipe results-->
+        <div id="recipeResults" class="column is-11 columns is-flex-wrap-wrap"></div> 
+      </div>
     </div>
+
+  </section>
+  <!--------------------------------END OF HERO SECTION ------------------------------------------>
+
+  <!------------------------------START OF DAYS OF THE WEEK -------------------------------------->
+  <section class="section" id="dayOfWeekSec">
+
+    <!-- EACH DAY BUTTON -->
+    <div class="columns is-justify-content-center is-justify-content-space-between is-hidden-mobile">
+      <button class="button daysBtns column is-2">Monday</button>
+      <button class="button daysBtns column is-2">Tuesday</button>
+      <button class="button daysBtns column is-2">Wednesday</button>
+      <button class="button daysBtns column is-2">Thursday</button>
+      <button class="button daysBtns column is-2">Friday</button>
+    </div>
+    <!-- END OF EACH DAY BUTTON -->
   
-    <div id="dayOfWeekContainer" class="columns is-flex  is-justify-content-center is-align-items-center  is-flex-wrap-wrap">
-        <div  class="card column is-3 dayOfWeekCard" data-day="monday">
-            <div class="card-image droppable cardImg">
+    <!-- DAYS OF THE WEEK CONTAINER -->
+    <div id="dayOfWeekContainer" class="columns is-justify-content-space-around is-flex-wrap-wrap">
+
+      <!-- MONDAY RECIPE -->
+      <div id="dayOfWeekCard" class="card column is-4">
+        <div class="card-image classImage">
+          <figure class="image is-4by3">
+                  
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="media"> 
+            <div class="media-content">
+              <p class="title is-4" id="recipeLink"><a> Click here for Recipe</a></p>
+            </div>
+          </div>
+          <div class="content">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Phasellus nec iaculis mauris. 
+            <br />     
+          </div>
+        </div>
+      </div>
+      <!-- END OF MONDAY RECIPE -->
+
+      <!-- TUESDAY RECIPE -->
+      <div id="dayOfWeekCard" class="card column is-4">
+        <div class="card-image classImage">
+          <figure class="image is-4by3">
               
-            </div>
-            <div class="card-content">
-              <div class="media">
-                
-               
-                <div class="media-content">
-                  <h3 class="dayCard">Monday</h3>
-                  <p class="title is-4" id="recipeLink"><a> Click here for Recipe</a></p>
-                </div>
-              </div>
-          
-              <div class="content">
-                <ul class="cardList"></ul>
-                
-                
-              </div>
-            </div>
-          </div>
-
-    
-    <div data-day="tuesday" class="card column is-3 dayOfWeekCard">
-      <div class="card-image droppable cardImg">
+          </figure>
         </div>
         <div class="card-content">
           <div class="media">
-           
             <div class="media-content">
-              <h3 class="dayCard">Tuesday</h3>
               <p class="title is-4" id="recipeLink"><a> Click here for Recipe</a></p>
             </div>
           </div>
-      
           <div class="content">
-            <ul class="cardList"></ul>
-            
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Phasellus nec iaculis mauris. 
+            <br />
           </div>
         </div>
       </div>
-      <div data-day="wednesday" class="card column is-3 dayOfWeekCard">
-        <div class="card-image droppable cardImg">
+      <!-- END OF TUESDAY RECIPE -->
+
+      <!-- WEDNESDAY RECIPE -->
+      <div id="dayOfWeekCard" class="card column is-4">
+        <div class="card-image classImage">
+          <figure class="image is-4by3">
+              
+          </figure>
         </div>
         <div class="card-content">
           <div class="media">
-           
             <div class="media-content">
-              <h3 class="dayCard">Wednesday</h3>
-              <p class="title is-4" ><a id="recipeLink"> Click here for Recipe</a></p>
-            </div>
-          </div>
-      
-          <div class="content">
-            <ul class="cardList">
-            
-          </div>
-        </div>
-      </div>
-      <div data-day="thursday" class="card column is-3 dayOfWeekCard">
-        <div class="card-image droppable cardImg">
-        </div>
-        <div class="card-content">
-          <div class="media">
-           
-            <div class="media-content">
-              <h3 class="dayCard">Thursday</h3>
               <p class="title is-4" id="recipeLink"><a> Click here for Recipe</a></p>
             </div>
           </div>
-      
           <div class="content">
-            <ul class="cardList"></ul>
-            
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Phasellus nec iaculis mauris. 
+            <br />
           </div>
         </div>
       </div>
+      <!-- END OF WEDNESDAY RECIPE -->
 
+      <!-- THURSDAY RECIPE -->
+      <div id="dayOfWeekCard" class="card column is-4">
+        <div class="card-image classImage">
+          <figure class="image is-4by3">
+              
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4" id="recipeLink"><a> Click here for Recipe</a></p>
+            </div>
+          </div>
+          <div class="content">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Phasellus nec iaculis mauris. 
+            <br />
+          </div>
+        </div>
+      </div>
+      <!-- END OF THURSDAY RECIPE -->
 
+      <!-- FRIDAY RECIPE -->
+      <div id="dayOfWeekCard" class="card column is-4">
+        <div class="card-image classImage">
+          <figure class="image is-4by3">
+              
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4" id="recipeLink"><a> Click here for Recipe</a></p>
+            </div>
+          </div>
+          <div class="content">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Phasellus nec iaculis mauris.
+            <br />
+          </div>
+        </div>
+      </div>
+      <!-- END OF FRIDAY RECIPE -->
 
-
-
-      <div class="cag4rd column is-3 dayOfWeekCard">
+      <!-- GROCERY LIST -->
+      <div id="dayOfWeekCard" class="card column is-4">
         <div class="card-image">
-         
-        </div>
-        <div class="card-content">
-      
-          <div class="menu">
-            <h3 class="menu-label">Grocery List</h3>
-            
-            <ul class="groceryList menu-list"></ul>
-              <button id="txtBtn">Text List</button>
-          </div>
-        </div>
-      </div>
-      <div data-day="friday" class="card column is-3 dayOfWeekCard">
-        <div class="card-image droppable cardImg">
+          <h3>Grocery List</h3>
         </div>
         <div class="card-content">
           <div class="media">
-           
             <div class="media-content">
-              <h3 class="dayCard">Friday</h3>
-              <p class="title is-4" id="recipeLink"><a> Click here for Recipe</a></p>
+              <p class="title is-4" id="recipeLink"><a> </a></p>
             </div>
           </div>
-      
           <div class="content">
-            <ul class="cardList"></ul>
-            
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Phasellus nec iaculis mauris. 
+            <br />
           </div>
         </div>
- 
       </div>
-
-    
-    
-    
-    
-    </div>
-
-
+      <!-- END OF GROCERY LIST -->
   
-
-</section>
+    </div>
+    <!-- END OF DAYS OF THE WEEK CONTAINER -->
+  
+  </section>
+  <!-------------------------------END OF DAYS OF THE WEEK --------------------------------------->
 
 </main>
-    <!-- End of Main Section -->
+<!---------------------------------END OF MAIN SECTION ------------------------------------------->
 
-    <!-- Footer Section -->
-    <footer>
+<!---------------------------------FOOTER SECTION ------------------------------------------------>
+<footer class="footer">
+  <section id="footerContainer" class="columns is-flex is-justify-content-center is-align-items-center is-flex-wrap-wrap">
+    <div class="footSections card column is-3">
+      <h3 class="footHeader">DEVELOPERS</h3>
+      <ul class="listOfDev is-justify-content-center">
+        <a href="#"><li class="devNames">Tye Stanley</li></a>
+        <a href="#"><li class="devNames">Scott Heier</li></a>
+        <a href="#"><li class="devNames">Gracie Navarro</li></a>
+        <a href="#"><li class="devNames">Alexis Ramos</li></a>
+      </ul>
+    </div>
+    <div class="footSections card column is-4"></div>
+    <div class="footSections card column is-4"></div>
+  </section>
+</footer>
+<!---------------------------------END OF FOOTER SECTION ----------------------------------------->
 
-
-
-    </footer>
-    <!-- End of Footer -->
-
-    <!-- add script at the bottom of the body -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/draggable/1.0.0-beta.12/draggable.min.js" integrity="sha512-VTqyB/kLQGaTnF5kYAgeEFo8fwqdlAGNUQeoQi4EOmmBYTEQ/XrYC7lnzCvBBp1PR+1ODEQiT075oeUdPeFHwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-ui-touch-punch@0.2.3/jquery.ui.touch-punch.min.js"></script>
-    <script src="../test-project/assets/js/script.js"></script>
+  <!-- add script at the bottom of the body -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/draggable/1.0.0-beta.12/draggable.min.js" integrity="sha512-VTqyB/kLQGaTnF5kYAgeEFo8fwqdlAGNUQeoQi4EOmmBYTEQ/XrYC7lnzCvBBp1PR+1ODEQiT075oeUdPeFHwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-ui-touch-punch@0.2.3/jquery.ui.touch-punch.min.js"></script>
+  <script src="../test-project/assets/js/script.js"></script>
+  
 </body>
 </html>
