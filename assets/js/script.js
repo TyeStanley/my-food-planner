@@ -189,4 +189,13 @@ var loadSave = function(){
   }
 }
 
+
+var textToPhone = function() {
+
+
+  
+}
+
+
+textToPhone();
 loadSave();
