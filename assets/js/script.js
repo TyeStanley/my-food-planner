@@ -10,6 +10,7 @@ const options = {
 var divEL = $("#recipeResults");
 var currentData;
 var recipeIngredients=[""];
+var currentSave;
 
 // Drag and drop function
 var draggableUnit = function(){
@@ -37,9 +38,12 @@ var draggableUnit = function(){
                                                                                                                target: "_blank" 
         });
         findIngredients(i, droppedOn);
-        //var currentSave = droppedOn[0].parentNode;
-        console.log(droppedOn);
-        //saveToStorage(currentSave);
+        console.log(droppedOn[0].parentElement);
+        $(droppedOn[0].parentElement).removeClass('btnSnap').addClass("dayOfWeekCard");
+        currentSave = droppedOn[0].parentNode.parentElement.outerHTML;
+        saveToStorage(currentSave);
+        
+        
         $(".newDiv").remove();
     }
     
@@ -126,17 +130,17 @@ $(`#dayOfWeekSec`).click(function(event){
   // event target variable
   var event = event.target;
   // day of week class buttons
-  var dayOfWeekBtns = event.classList.contains('daysBtns')
+  var dayOfWeekBtns = event.classList.contains('daysBtns');
 
 
 // if dat of the week button is selected and the event id isn't == to the previous one
   if(dayOfWeekBtns   && event.id != currentDay){
    // select the card element with the same id and bring it up to the top
-    $(`div[data-day=${event.id}]`).removeClass('dayOfWeekCard').addClass("btnSnap")
+    $(`div[data-day=${event.id}]`).removeClass('dayOfWeekCard').addClass("btnSnap");
     return  currentDay = event.id;
   }
 //return element back to location
-  else if(dayOfWeekBtns){ $(`div[data-day=${event.id}]`).removeClass('btnSnap').addClass("dayOfWeekCard")
+  else if(dayOfWeekBtns){ $(`div[data-day=${event.id}]`).removeClass('btnSnap').addClass("dayOfWeekCard");
         return currentDay = "";
 }
   else{
@@ -179,7 +183,7 @@ var saveToStorage = function(currentSave){
 
 var loadSave = function(){
   var getItem = localStorage.getItem('currentDiv');
-    console.log(getItem);
+    
   if(getItem){
     $('#dayOfWeekContainer')[0].outerHTML = getItem;
   }
