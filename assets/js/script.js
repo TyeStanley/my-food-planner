@@ -37,7 +37,9 @@ var draggableUnit = function(){
                                                                                                                target: "_blank" 
         });
         findIngredients(i, droppedOn);
-        
+        //var currentSave = droppedOn[0].parentNode;
+        console.log(droppedOn);
+        //saveToStorage(currentSave);
         $(".newDiv").remove();
     }
     
@@ -52,11 +54,11 @@ var findIngredients = function(i, droppedOn){
   var currentI = i;
   $(".groceryList").append(`<li class="groceryListTitle">Ingredients for: ${title}<ul class="li${i}"></ul></li>`);
   for(var i = 0; ingredients.length > i; i++){
-
+    var ingr = droppedOn[0].parentNode.childNodes[3].childNodes[3].childNodes[1];
     // create an array of ingredients
     recipeIngredients.push(ingredients[i].text);
     $(droppedOn[0].parentNode.childNodes[3].childNodes[3].childNodes[1]).append(`<li class="cardListEl">${recipeIngredients[i + 1]}</li>`);
-   
+      
     $(`.li${currentI}`).append(`<li>${recipeIngredients[i+1]}</li>`);
 
     
@@ -169,5 +171,18 @@ function init() {
   document.addEventListener("touchcancel", touchHandler, true);
 }
 
+var saveToStorage = function(currentSave){
 
+     localStorage.setItem('currentDiv', currentSave );
 
+}
+
+var loadSave = function(){
+  var getItem = localStorage.getItem('currentDiv');
+    console.log(getItem);
+  if(getItem){
+    $('#dayOfWeekContainer')[0].outerHTML = getItem;
+  }
+}
+
+loadSave();
