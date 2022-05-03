@@ -119,3 +119,24 @@ header ul li a {
     -webkit-transition: opacity .25s ease-in-out .0s;
     transition: opacity .25s ease-in-out .0s;
 }
+
+footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#footer1 {
+    width: 30%;
+    background-color: #000;
+}
+
+#footer3 {
+    width: 40%;
+    background-color: #fff;
+}
+
+#footer3 {
+    width: 30%;
+    background-color: #000;
+}
