@@ -22,11 +22,10 @@
 /* END OF NAV BAR */
 
 /* HERO SECTION */
-#heroSectionContainer{
-    margin-top: 6%;
-}
-.hero-body {
-    height: 800px;
+
+.hero-body{
+    height: 750px;
+    margin-top: 2%;
 }
 #hero {
     background-color: black;
@@ -166,6 +165,34 @@
     width: 100%;
     box-shadow: inset 2px 1px 15px #000000; 
 }
+
+.cardImg{
+    height: 280px;
+    
+}
+
+
+.figureImg{
+    background-size: cover;
+    background-position:center;
+    width: 100%;
+    Height: 100%;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px black inset;
+}
+
+.btnSnap{
+    width: 21.5% !important;
+    position:absolute;
+    top: 350px;
+    left: 30px;
+    background-color: #ffffff;
+    margin-left: -15px;
+    margin-top: -90px;
+
+}
+
+
 /* END OF THE WEEK CARD */
 /* END OF DAY OF WEEK BUTTONS AND CARDS */
 
