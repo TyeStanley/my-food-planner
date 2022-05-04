@@ -12,7 +12,6 @@ var currentData;
 var recipeIngredients=[""];
 var currentSave;
 var email;
-var recTitle;
 var titleArray;
 var weeklyRecipes;
 
@@ -62,7 +61,7 @@ var findIngredients = function(i, droppedOn){
   var ingredients = currentData.hits[i].recipe.ingredients;
   var title  = currentData.hits[i].recipe.label
   var currentI = i;
-  $(".groceryList").append(`<li class="groceryListTitle">Ingredients for: ${title}<ul class="li${i}"></ul></li>`);
+  $(".groceryList").append(`<br><h4>${title} Ingredients: <ul class="li${i}"></h4><br>`);
   for(var i = 0; ingredients.length > i; i++){
     var ingr = droppedOn[0].parentNode.childNodes[3].childNodes[3].childNodes[1];
     // create an array of ingredients
@@ -214,7 +213,7 @@ var textToEmail = function() {
       'X-RapidAPI-Host': 'easymail.p.rapidapi.com',
       'X-RapidAPI-Key': 'eb43b08f3fmsh10848c7bb34f19cp12b721jsncaced0890350'
     },
-    body: `{"from":"Your Weekly Recipes Are Here","to":"${email}","subject":"Here is your Grocery List : ","message":"${recTitle + weeklyRecipes}"}`
+    body: `{"from":"Your Weekly Recipes Are Here","to":"${email}","subject":"Here is your Grocery List : ","message":"${weeklyRecipes}"}`
   };
   
   fetch('https://easymail.p.rapidapi.com/send', options)
@@ -277,15 +276,18 @@ $(".grocBtns").click(function(event){
     $('.modal').addClass("is-active is-clipped");
     
     // Gets the list in the form of HTML from grocery list
-     weeklyRecipes = $('.groceryListTitle')[0].innerHTML;
+     weeklyRecipes = $('.groceryList')[0].innerHTML;
     // split the list at the UL element 
-     titleArray = weeklyRecipes.split("<ul>");
+    console.log(weeklyRecipes);
+
+     //titleArray = weeklyRecipes.split("<ul>");
     // set the first part at the title
-     recTitle = titleArray[0];
+    //console.log(titleArray);
+    // recTitle = titleArray[0];
     // set the second part as the ingre
-    weeklyRecipes = titleArray[1];
+    //weeklyRecipes = titleArray[1];
     // add h1 to title for email formating 
-    recTitle = `<h1>${recTitle}</h1>`;
+    //recTitle = `<h1>${recTitle}</h1>`;
 
   }
   else{

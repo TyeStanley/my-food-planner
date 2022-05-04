@@ -264,12 +264,9 @@ a li {
     
 }
 .groceryList{
-    font-weight: bolder;
-    font-size: 18px;
-}
-.groceryListTitle{
+    font-size: 19px;
     color: black;
-   text-shadow: 1px 1px 2px #75757557;
+    text-shadow: 1px 1px 2px #757575eb;
 }
 
 #emailLabel{
