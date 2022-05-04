@@ -280,16 +280,6 @@ $(".grocBtns").click(function(event){
      weeklyRecipes = $('.groceryList')[0].innerHTML;
     // split the list at the UL element 
     console.log(weeklyRecipes);
-
-     //titleArray = weeklyRecipes.split("<ul>");
-    // set the first part at the title
-    //console.log(titleArray);
-    // recTitle = titleArray[0];
-    // set the second part as the ingre
-    //weeklyRecipes = titleArray[1];
-    // add h1 to title for email formating 
-    //recTitle = `<h1>${recTitle}</h1>`;
-
   }
   else{
     return;
