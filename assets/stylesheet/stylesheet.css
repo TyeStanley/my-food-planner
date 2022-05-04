@@ -131,11 +131,11 @@
 .daysBtns {
     color: white;
     font-size: 20px;
-    background-color: #00000000;
+    background-color: #201610;
     width: 100px;
     height: 60px;
     border-radius: 5px;
-    border: 1px solid #0000004d;
+    border: 1px solid #0000007a;
     box-shadow:inset 1px 2px 3px #000000;
     text-shadow: 2px 1px 5px #000000;
     font-weight: bolder;
@@ -171,7 +171,7 @@
 
 /* FOOTER SECTION */
 .footer {
-    background-color: #433630;
+    background-color:#201610;
 }
 .footSections {
     border: 1px solid black;

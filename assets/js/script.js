@@ -134,9 +134,9 @@ $(`#dayOfWeekSec`).click(function(event){
   // day of week class buttons
   var dayOfWeekBtns = event.classList.contains('daysBtns');
 
-
+  //!= currentDay
 // if dat of the week button is selected and the event id isn't == to the previous one
-  if(dayOfWeekBtns   && event.id != currentDay){
+  if(dayOfWeekBtns   && event.id ){
    // select the card element with the same id and bring it up to the top
     $(`div[data-day=${event.id}]`).removeClass('dayOfWeekCard').addClass("btnSnap");
     return  currentDay = event.id;
@@ -213,5 +213,5 @@ var textToEmail = function() {
 }
 
 
-textToEmail();
+//textToEmail();
 loadSave();
