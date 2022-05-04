@@ -270,6 +270,8 @@ $(".grocBtns").click(function(event){
       }
   }
   else if(removeItemBtn){
+    localStorage.removeItem('currentDiv');
+    location.reload();
     
   }
   else if(emailBtn){
