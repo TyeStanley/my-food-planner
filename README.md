@@ -49,3 +49,5 @@ Hello and welcome to our app for weekly meal planning. We developed this web sof
 * https://rapidapi.com/edamam/api/recipe-search-and-diet/
 
 ## Build Preview
+![screencapture-file-C-Users-Scott-Desktop-projects-test-project-index-html-2022-05-04-14_59_31](https://user-images.githubusercontent.com/99227667/166816353-23d63de5-2f62-4e80-a1ae-fe80a058d945.jpg)
+
