@@ -198,6 +198,25 @@
 /* END OF THE WEEK CARD */
 /* END OF DAY OF WEEK BUTTONS AND CARDS */
 
+/* START OF CALORIE CALCULATOR*/
+.calc-wrap {
+    background-color: #ffffffcc;
+    padding: 10px 10px;
+    border-radius: 10px;
+    box-shadow: 1px 10px 15px #000000;
+    margin-top: 20px;
+}
+
+.calc-wrap h3 {
+    text-align: center;
+}
+
+.info-form {
+    display: flex;
+    justify-content: space-around;
+}
+
+
 /* FOOTER SECTION */
 .footer {
     background-color: #2d2c2b;

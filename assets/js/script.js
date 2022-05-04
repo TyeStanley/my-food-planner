@@ -12,6 +12,7 @@ var currentData;
 var recipeIngredients=[""];
 var currentSave;
 var email;
+var recTitle;
 var titleArray;
 var weeklyRecipes;
 
@@ -213,7 +214,7 @@ var textToEmail = function() {
       'X-RapidAPI-Host': 'easymail.p.rapidapi.com',
       'X-RapidAPI-Key': 'eb43b08f3fmsh10848c7bb34f19cp12b721jsncaced0890350'
     },
-    body: `{"from":"Your Weekly Recipes Are Here","to":"${email}","subject":"Here is your Grocery List : ","message":"${weeklyRecipes}"}`
+    body: `{"from":"Your Weekly Recipes Are Here","to":"${email}","subject":"Here is your Grocery List : ","message":"${recTitle + weeklyRecipes}"}`
   };
   
   fetch('https://easymail.p.rapidapi.com/send', options)
