@@ -43,7 +43,7 @@
     text-align: center;
     background: #00000014;
     height: 100%;
-    margin-top: 10px;
+    margin-top: 45px;
     box-shadow: 1px 1px 5px #000000; 
     padding-bottom: 185px;
 }
@@ -87,6 +87,7 @@
     margin-top: 10px;
     border: 1px solid black;
     box-shadow: 20px 20px 55px #404040; 
+    z-index: 5;
 }
 .recipeH3 { /* Does this not have anything for it? */
     opacity:0;
@@ -97,7 +98,7 @@
     background-size: cover;
     text-align: center;
     text-shadow: 3px 1px 5px #000000;
-    border: 1px solid black;
+    
     font-size: 30px;
 }
 .recipeH3:hover {
@@ -121,31 +122,39 @@
 #dayOfWeekSec{
     background-color: #764422a6;
 }
-.daysBtns {
+/* DAY OF WEEK BUTTONS AND CARDS */
+.dayOfWeekCard{
+   
+    border: 1px solid black;
+    background-color: #ffffffcc;
+    border-radius: 10px;
+    margin-right: 50px;
+    margin-top: 50px;
+    box-shadow: 1px 10px 15px #000000;
+}
+.daysBtnsDiv{
+    margin-left: 7.5%;
+    z-index: 20;
+   
+}
+.daysBtns{
+    z-index: 99;
     color: white;
     font-size: 20px;
-    background-color: #201610;
-    width: 100px;
+    background-color: #2d2c2b;
+    width: 150px;
     height: 60px;
     border-radius: 5px;
-    border: 1px solid #0000007a;
+    border: 1px solid #0000004d;
     box-shadow:inset 1px 2px 3px #000000;
     text-shadow: 2px 1px 5px #000000;
+    margin-left: 2%;
     font-weight: bolder;
 }
-.daysBtns:hover {
-    color:white;
-    box-shadow: 1px 1px 10px #000000;
-}
-/* END OF DAYS BUTTON */
-/* DAYS OF THE WEEK CARD */
-.dayOfWeekCard{
-    border: 1px solid black;
-    background-color: #ffffff;
-    border-radius: 10px;
-    margin-top: 50px;
-    box-shadow: 1px 20px 30px #000000;
-    box-sizing: unset;
+.dayCard{
+    font-size: 35px;
+    font-weight: bolder;
+    color: black;
 }
 .photoDiv{
     background-color: black;
@@ -181,7 +190,7 @@
     left: 30px;
     background-color: #ffffff;
     margin-left: -15px;
-    margin-top: -90px;
+    margin-top: -55px;
 
 }
 
