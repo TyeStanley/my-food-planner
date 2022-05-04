@@ -200,55 +200,56 @@ var loadSave = function(){
   }
 }
 
-//body: `{"from":"Example","to":"${email}","subject":"This is the mail subject","message":"${recTitle + weeklyRecipes}"}`
-var textToEmail = function(recTitle,weeklyRecipes) {
+
+var textToEmail = function() {
+  debugger;
   email = email.trim();
   console.log(email);
+  console.log()
     
   const options = {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
       'X-RapidAPI-Host': 'easymail.p.rapidapi.com',
-      'X-RapidAPI-Key': 'f1a0ddc44bmsh1cd51ad1a6b4dd2p19a4a0jsn5f16aca86bce'
+      'X-RapidAPI-Key': 'eb43b08f3fmsh10848c7bb34f19cp12b721jsncaced0890350'
     },
-    body: `{"from":"Your Weekly Recipes Are Here","to":"${email}","subject":"This is the mail subject","message":"${recTitle + weeklyRecipes}"}`
+    body: `{"from":"Your Weekly Recipes Are Here","to":"${email}","subject":"Here is your Grocery List : ","message":"${recTitle + weeklyRecipes}"}`
   };
   
   fetch('https://easymail.p.rapidapi.com/send', options)
     .then(response => response.json())
     .then(response => console.log(response))
-    .catch(err => console.error(err));atch(err => console.error(err));
-
+    .catch(err => console.error(err));
+    $('.modal').removeClass("is-active is-clipped");
+    $('#emailInput').val("");
 }
 
-// modal event listeners
-var modalListener = function(){
+
   // listen for a submit from email form
   $("#emailForm").submit(function(event){
+    debugger;
     // if there is a submit grab the email value from input field and save it
    email = $('#emailInput').val();
    // call text to email function with recipe and email 
-   textToEmail(recTitle, weeklyRecipes, email);
-    // clear email input
-    $('#emailInput').val("");
-   // close modal
-   $('.modal').removeClass("is-active is-clipped");
    // prevent page refresh
-   event.preventDefault();
+   
+    textToEmail();
+    event.preventDefault(); 
+  })
   
-})
+
 // if the X is clicked close modal
 $('.modal-close').click(function(){
   $('.modal').removeClass("is-active is-clipped");
 
 })
-}
+
 
 
 // listern for the grocery list buttons div 
 $(".grocBtns").click(function(event){
-  modalListener();
+  
   // sets the event target to var 
   var event = event.target;
   // checks to see if the event contains the minimizeBTN class list
@@ -286,9 +287,6 @@ $(".grocBtns").click(function(event){
     // add h1 to title for email formating 
     recTitle = `<h1>${recTitle}</h1>`;
 
-    console.log(email);
-    // call the email function
-    //textToEmail(recTitle, weeklyRecipes);
   }
   else{
     return;
@@ -301,5 +299,5 @@ $(".grocBtns").click(function(event){
 });
 
 
-//textToEmail();
+
 loadSave();
