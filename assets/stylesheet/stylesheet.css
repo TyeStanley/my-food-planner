@@ -319,4 +319,7 @@ a li {
     margin-left: 15px;
     
 }
+    #groceryCard{
+    display: none;
+    }   
   }

@@ -276,6 +276,7 @@ $(".grocBtns").click(function(event){
     
     // Gets the list in the form of HTML from grocery list
      weeklyRecipes = $('.groceryList')[0].innerHTML;
+
    
     
   }
