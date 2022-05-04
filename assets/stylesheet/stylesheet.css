@@ -215,6 +215,7 @@
     display: flex;
     justify-content: space-around;
 }
+/* END OF CALORIE CALCULATOR STYLING */
 
 
 /* FOOTER SECTION */
@@ -258,3 +259,10 @@
         overflow:scroll;
     }
   }
+
+@media screen and (max-width: 575px) {
+    .info-form {
+        flex-wrap: wrap;
+    }
+}
+    
