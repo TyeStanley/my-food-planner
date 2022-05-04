@@ -29,13 +29,13 @@ Hello and welcome to our app for weekly meal planning. We developed this web sof
 
 ## Demo
 
-
+![Weekly Food ShowCase](./assets/images/weekly-food.gif)
 
 ## Website Links
 
-[GitHub](https://github.com/TyeStanley/Project-One-FrontEnd)
+[GitHub](https://github.com/TyeStanley/my-food-planner/)
 
-[Deployed](https://tyestanley.github.io/Project-One-FrontEnd/)
+[Deployed](https://tyestanley.github.io/my-food-planner/)
 
 ## Developers
 
