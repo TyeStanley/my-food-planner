@@ -43,7 +43,6 @@ var draggableUnit = function(){
                                                                                                                target: "_blank" 
         });
         findIngredients(i, droppedOn);
-        console.log(droppedOn[0].parentElement);
         $(droppedOn[0].parentElement).removeClass('btnSnap').addClass("dayOfWeekCard");
         currentSave = droppedOn[0].parentNode.parentElement.outerHTML;
         saveToStorage(currentSave);
@@ -88,8 +87,6 @@ var createRecipes = function(choice){
             return response.json()
         })
         .then(function(data){
-          //console log the data options
-            //console.log(data);
             currentData = data;
         
             //setting variable for recipe length
