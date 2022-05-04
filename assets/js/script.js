@@ -11,6 +11,8 @@ var divEL = $("#recipeResults");
 var currentData;
 var recipeIngredients=[""];
 var currentSave;
+var email;
+var weeklyRecipes;
 
 // Drag and drop function
 var draggableUnit = function(){
@@ -199,7 +201,7 @@ var textToEmail = function() {
       'X-RapidAPI-Host': 'easymail.p.rapidapi.com',
       'X-RapidAPI-Key': '75782cec53msh272191a679e4c13p1ef88bjsn0d39f3ec32a8'
     },
-    body: '{"from":{"name":"Scott"},"to":{"name":"John Doe","address":"spartanheros_54@hotmail.com"},"subject":"testmessage","message":"Hello John, how are you ?","show_noreply_warning":true}'
+    body: `{"from":{"name":"My Food Planner"},"to":{"name":"Hey there","address":${email}},"subject":"Weekly Food Planner","message":"Here is your weekly recipe guide${weeklyRecipes}","show_noreply_warning":true}`
   };
   
   fetch('https://easymail.p.rapidapi.com/send', options)
