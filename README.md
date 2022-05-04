@@ -44,5 +44,8 @@ Hello and welcome to our app for weekly meal planning. We developed this web sof
 * Gracie Navarro
 * Alexis Ramos
 
-## Potential API LINKS : 
-* https://rapidapi.com/alessandro.gianfelici/api/tastyworld/ - Ingredient q
+## API LINKS : 
+* https://rapidapi.com/mrsanta79/api/easymail/
+* https://rapidapi.com/edamam/api/recipe-search-and-diet/
+
+## Build Preview
