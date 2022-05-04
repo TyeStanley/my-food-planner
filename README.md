@@ -35,7 +35,7 @@ Hello and welcome to our app for weekly meal planning. We developed this web sof
 
 [GitHub](https://github.com/TyeStanley/Project-One-FrontEnd)
 
-[Deployed](https://tyestanley.github.io/Project-One-FrontEnd/)
+[Deployed](https://tyestanley.github.io/my-food-planner/)
 
 ## Developers
 
