@@ -68,13 +68,15 @@ var findIngredients = function(i, droppedOn){
     var ingr = droppedOn[0].parentNode.childNodes[3].childNodes[3].childNodes[1];
     // create an array of ingredients
     recipeIngredients.push(ingredients[i].text);
+    // append ingredent list to the element its dropped on
     $(droppedOn[0].parentNode.childNodes[3].childNodes[3].childNodes[1]).append(`<li class="cardListEl">${recipeIngredients[i + 1]}</li>`);
-      
+      // appends ingredients to current list heading
     $(`.li${currentI}`).append(`<li>${recipeIngredients[i+1]}</li>`);
+    
 
     
   }
-
+  $(`.li${currentI}`).removeAttr("class")
   
 }
 //Function to pull recipes from data base
@@ -205,8 +207,8 @@ var textToEmail = function(weeklyRecipes) {
       'content-type': 'application/json',
       'X-RapidAPI-Host': 'easymail.p.rapidapi.com',
       'X-RapidAPI-Key': '75782cec53msh272191a679e4c13p1ef88bjsn0d39f3ec32a8'
-    },                                                                                        //${weeklyRecipes}
-    body: `{"from":"Example","to":"heierms@gmail.com","subject":"This is the mail subject","message":"<li>2 tbsp. chili powder</li><li>1 tbsp. cayenne</li><li>1 8-10-lb. beef brisket</li><li>1 cup apple juice</li></ul>"}`
+    },                                                                                       
+    body: `{"from":"Example","to":"heierms@gmail.com","subject":"This is the mail subject","message":"${weeklyRecipes}"}`
   };
   
   fetch('https://easymail.p.rapidapi.com/send', options)
@@ -235,13 +237,14 @@ $(".grocBtns").click(function(event){
   }
   else if(emailBtn){
     
-    var weeklyRecipes = $('.groceryList')[0].childNodes[0].innerHTML;
+    var weeklyRecipes = $('.groceryListTitle')[0].innerHTML; //[0].childNodes[0].innerHTML;
+    console.log(weeklyRecipes);
     // get this class from dom 
-    var titleArray = weeklyRecipes.split("<ul class=\"li4\">");
-    console.log(titleArray);
-    weeklyRecipes = titleArray[1];
+    //var titleArray = weeklyRecipes.split("<ul class=\"li4\">");
+   // console.log(titleArray);
+    //weeklyRecipes = titleArray[1];
     
-    //textToEmail(weeklyRecipes);
+    textToEmail(weeklyRecipes);
     
     // var arrayIng = titleArray[1].split(".");
     // var recTitle = `Your ${titleArray[0]} ${arrayIng[0]} are:\n`;
@@ -250,7 +253,7 @@ $(".grocBtns").click(function(event){
 
       
   //     weeklyRecipes += "\n" + arrayIng[i];
-       console.log(titleArray);
+       
 
 
 
