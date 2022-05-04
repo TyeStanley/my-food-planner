@@ -199,8 +199,8 @@ var loadSave = function(){
 }
 
 
-var textToEmail = function(weeklyRecipes) {
-
+var textToEmail = function(recTitle,weeklyRecipes) {
+    
   const options = {
     method: 'POST',
     headers: {
@@ -208,7 +208,7 @@ var textToEmail = function(weeklyRecipes) {
       'X-RapidAPI-Host': 'easymail.p.rapidapi.com',
       'X-RapidAPI-Key': '75782cec53msh272191a679e4c13p1ef88bjsn0d39f3ec32a8'
     },                                                                                       
-    body: `{"from":"Example","to":"heierms@gmail.com","subject":"This is the mail subject","message":"${weeklyRecipes}"}`
+    body: `{"from":"Example","to":"heierms@gmail.com","subject":"This is the mail subject","message":"${recTitle + weeklyRecipes}"}`
   };
   
   fetch('https://easymail.p.rapidapi.com/send', options)
@@ -238,13 +238,17 @@ $(".grocBtns").click(function(event){
   else if(emailBtn){
     
     var weeklyRecipes = $('.groceryListTitle')[0].innerHTML; //[0].childNodes[0].innerHTML;
-    console.log(weeklyRecipes);
+    
     // get this class from dom 
-    //var titleArray = weeklyRecipes.split("<ul class=\"li4\">");
-   // console.log(titleArray);
+    var titleArray = weeklyRecipes.split("<ul>");
+    var recTitle = titleArray[0];
+    weeklyRecipes = titleArray[1];
+    console.log(weeklyRecipes);
+    recTitle = `<h1>${recTitle}</h1>`;
+    console.log(recTitle);
     //weeklyRecipes = titleArray[1];
     
-    textToEmail(weeklyRecipes);
+    textToEmail(recTitle, weeklyRecipes);
     
     // var arrayIng = titleArray[1].split(".");
     // var recTitle = `Your ${titleArray[0]} ${arrayIng[0]} are:\n`;
