@@ -198,6 +198,25 @@
 /* END OF THE WEEK CARD */
 /* END OF DAY OF WEEK BUTTONS AND CARDS */
 
+/* START OF CALORIE CALCULATOR*/
+.calc-wrap {
+    background-color: #ffffffcc;
+    padding: 10px 10px;
+    border-radius: 10px;
+    box-shadow: 1px 10px 15px #000000;
+    margin-top: 20px;
+}
+
+.calc-wrap h3 {
+    text-align: center;
+}
+
+.info-form {
+    display: flex;
+    justify-content: space-around;
+}
+
+
 /* FOOTER SECTION */
 .footer {
     background-color: #2d2c2b;
@@ -253,6 +272,43 @@ a li {
     font-weight: bolder;
 }
 
+.invisible{
+    opacity: 0;
+   
+}
+.visible{
+    opacity: 1;
+    font-size: 30px;
+    font-weight: bolder;
+    
+}
+.groceryList{
+    font-size: 19px;
+    color: #4f4d4d;
+    text-shadow: 1px 1px 2px #757575c7;
+}
+.groceryList h4{
+    color: #ff0000;
+     text-shadow: 1px 1px 2px #ffffffc7;
+    text-decoration: underline;
+    font-weight: bolder;
+    
+}
+.groceryList li{
+    font-weight: bolder;
+}
+
+#emailLabel{
+    color: white;
+    font-weight: bolder;
+}
+
+#emailSubmit{
+    margin-top: 20px;
+    width: 25%;
+}
+
+
 @media only screen and (max-width: 600px) {
     #hero{
         overflow:scroll;
@@ -263,4 +319,7 @@ a li {
     margin-left: 15px;
     
 }
+    #groceryCard{
+    display: none;
+    }   
   }

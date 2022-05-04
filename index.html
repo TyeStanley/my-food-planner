@@ -144,12 +144,14 @@
       </div>
       
       <!-- GROCERY LIST CONTAINER-->
-      <div class="card column is-3 dayOfWeekCard groceryList">
+      <div id ="groceryCard" class="card column is-3 dayOfWeekCard ">
         <div class="card-image"></div>
         <div class="card-content">
-          <div class="menu">
-            <h3 class="menu-label groceryH3">Grocery List</h3>
-            <ul class="menu-list"></ul>
+          <h3 class="menu-label groceryH3">Grocery List</h3>
+          <h4 id ="minimized" class="invisible">Press minimize to open</h4>
+          <div class="menu groceryContent">
+            
+            <ul class="menu-list groceryList"></ul>
           </div>
         </div>
       </div> 
@@ -175,8 +177,31 @@
 
     <div class="columns is-align-content-center is-justify-content-center is-align-items-center is-align-content-space-evenly  grocBtns ">
       <button id="emailBtn" class="button is-normal emailBtn">Email List</button>
-      <button id="clearListItem" class="button is-normal clearListItem">Remove Items</button>
+      <button id="clearListItem" class="button is-normal clearListItem">Clear Recipes</button>
       <button id="minBtn" class="minBtn button is-normal"> Minimize</button>
+      <div class="modal">
+        
+        
+      <!-- Modal to get user email info-->
+        <div class="modal-background"></div>
+        <div class="modal-content">
+          <!-- form -->
+          <form class="field" id = "emailForm">
+            <label class="label is-medium" id="emailLabel">Please Enter Your Email:</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input is-medium" type="email" placeholder="johndoe@gmail.com" id ="emailInput">
+              <button id="emailSubmit" class="button is-normal is-responsive" type="submit">Submit</button>
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope fa-xs"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fas fa-check fa-xs"></i>
+              </span>
+            </div>
+          </form>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+      </div>
     </div>
 
   </section>
@@ -208,7 +233,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery-ui-touch-punch@0.2.3/jquery.ui.touch-punch.min.js"></script>
-  <script src="../test-project/assets/js/script.js"></script>
+  <script src="./assets/js/script.js"></script>
   
 </body>
 </html>

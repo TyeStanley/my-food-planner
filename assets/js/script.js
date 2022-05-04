@@ -12,7 +12,8 @@ var currentData;
 var recipeIngredients=[""];
 var currentSave;
 var email;
-
+var titleArray;
+var weeklyRecipes;
 
 // Drag and drop function
 var draggableUnit = function(){
@@ -24,9 +25,6 @@ var draggableUnit = function(){
     snap: true ,
     zIndex: 2000,
     appendTo: "#dayOfWeekSec"
-
-    
-
   });
   $( ".droppable" ).droppable({
     drop: function( event, ui ) {
@@ -45,7 +43,6 @@ var draggableUnit = function(){
                                                                                                                target: "_blank" 
         });
         findIngredients(i, droppedOn);
-        console.log(droppedOn[0].parentElement);
         $(droppedOn[0].parentElement).removeClass('btnSnap').addClass("dayOfWeekCard");
         currentSave = droppedOn[0].parentNode.parentElement.outerHTML;
         saveToStorage(currentSave);
@@ -63,7 +60,7 @@ var findIngredients = function(i, droppedOn){
   var ingredients = currentData.hits[i].recipe.ingredients;
   var title  = currentData.hits[i].recipe.label
   var currentI = i;
-  $(".groceryList").append(`<li class="groceryListTitle">Ingredients for: ${title}<ul class="li${i}"></ul></li>`);
+  $(".groceryList").append(`<br><h4>${title} Ingredients:</h4></br> <ul class="li${i}">`);
   for(var i = 0; ingredients.length > i; i++){
     var ingr = droppedOn[0].parentNode.childNodes[3].childNodes[3].childNodes[1];
     // create an array of ingredients
@@ -90,10 +87,8 @@ var createRecipes = function(choice){
             return response.json()
         })
         .then(function(data){
-          //console log the data options
-            //console.log(data);
             currentData = data;
-
+        
             //setting variable for recipe length
             var tenRecipes = 8;
             divEL.html("");
@@ -115,6 +110,7 @@ var createRecipes = function(choice){
                  h3El.text(`${data.hits[i].recipe.label}`);
                  //append to photo div
                  newSmallDiv[0].append(h3El[0]);
+                 
 }
 $('#recipeSearch').val("");
   return draggableUnit();   
@@ -202,27 +198,54 @@ var loadSave = function(){
 }
 
 
-var textToEmail = function(recTitle,weeklyRecipes) {
+var textToEmail = function() {
+
+  email = email.trim();
+  
     
   const options = {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
       'X-RapidAPI-Host': 'easymail.p.rapidapi.com',
-      'X-RapidAPI-Key': '75782cec53msh272191a679e4c13p1ef88bjsn0d39f3ec32a8'
-    },                                                                                       
-    body: `{"from":"Example","to":"heierms@gmail.com","subject":"This is the mail subject","message":"${recTitle + weeklyRecipes}"}`
+      'X-RapidAPI-Key': 'eb43b08f3fmsh10848c7bb34f19cp12b721jsncaced0890350'
+    },
+    body: `{"from":"Your Weekly Recipes Are Here","to":"${email}","subject":"Here is your Grocery List : ","message":"${weeklyRecipes}"}`
   };
   
   fetch('https://easymail.p.rapidapi.com/send', options)
     .then(response => response.json())
     .then(response => console.log(response))
     .catch(err => console.error(err));
-
+    $('.modal').removeClass("is-active is-clipped");
+    $('#emailInput').val("");
 }
+
+
+  // listen for a submit from email form
+  $("#emailForm").submit(function(event){
+    
+    // if there is a submit grab the email value from input field and save it
+   email = $('#emailInput').val();
+   // call text to email function with recipe and email 
+   // prevent page refresh
+   
+    textToEmail();
+    event.preventDefault(); 
+  })
+  
+
+// if the X is clicked close modal
+$('.modal-close').click(function(){
+  $('.modal').removeClass("is-active is-clipped");
+
+})
+
+
 
 // listern for the grocery list buttons div 
 $(".grocBtns").click(function(event){
+  
   // sets the event target to var 
   var event = event.target;
   // checks to see if the event contains the minimizeBTN class list
@@ -234,24 +257,28 @@ $(".grocBtns").click(function(event){
  
   // if it is the minBtn then use slide toggle
   if(miniBtn){
-      $(".groceryList").slideToggle();  
+      $(".groceryContent").slideToggle();
+      
+      if($('#minimized')[0].classList.contains("invisible")){
+        $('#minimized').removeClass("invisible").addClass('visible');
+      } 
+      else{
+        $('#minimized').removeClass("visible").addClass('invisible');
+      }
   }
   else if(removeItemBtn){
+    localStorage.removeItem('currentDiv');
+    location.reload();
     
   }
   else if(emailBtn){
+    $('.modal').addClass("is-active is-clipped");
+    
     // Gets the list in the form of HTML from grocery list
-    var weeklyRecipes = $('.groceryListTitle')[0].innerHTML;
-    // split the list at the UL element 
-    var titleArray = weeklyRecipes.split("<ul>");
-    // set the first part at the title
-    var recTitle = titleArray[0];
-    // set the second part as the ingre
-    weeklyRecipes = titleArray[1];
-    // add h1 to title for email formating 
-    recTitle = `<h1>${recTitle}</h1>`;
-    // call the email function
-    textToEmail(recTitle, weeklyRecipes);
+     weeklyRecipes = $('.groceryList')[0].innerHTML;
+
+   
+    
   }
   else{
     return;
@@ -264,5 +291,5 @@ $(".grocBtns").click(function(event){
 });
 
 
-//textToEmail();
+
 loadSave();
