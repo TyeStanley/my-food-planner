@@ -16,7 +16,7 @@
 <!-------------------------------------------------- Header Section ---------------------------------->
 <header>
   <!-- Main navbar-->
-  <nav class="navbar is-fixed-top is-transparent" role="navigation" aria-label="main navigation">
+  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
     <!-- nav bar title -->
     <div class="navbar-brand brand">
       <a class="navbar-item">
@@ -67,158 +67,124 @@
   <section class="section" id="dayOfWeekSec">
 
     <!-- EACH DAY BUTTON -->
-  <!--<div class="columns is-justify-content-center is-justify-content-space-between is-hidden-mobile"> -->
-      <div class="daysBtnsDiv is-justify-content-center is-justify-content-space-between is-hidden-mobile columns container">
-        <button id="monday" class="button daysBtns column is-2">Monday</button>
-        <button id="tuesday"class="button daysBtns column is-2">Tuesday</button>
-        <button id="wednesday" class="button daysBtns column is-2">Wednesday</button>
-        <button id="thursday" class="button daysBtns column is-2">Thursday</button>
-        <button id="friday" class="button daysBtns column is-2">Friday</button>
-      </div>
+    <div class="columns is-justify-content-center is-justify-content-space-between is-hidden-mobile">
+      <button id="monday" class="button daysBtns column is-2">Monday</button>
+      <button id="tuesday"class="button daysBtns column is-2">Tuesday</button>
+      <button id="wednesday" class="button daysBtns column is-2">Wednesday</button>
+      <button id="thursday" class="button daysBtns column is-2">Thursday</button>
+      <button id="friday" class="button daysBtns column is-2">Friday</button>
+    </div>
     <!-- END OF EACH DAY BUTTON -->
   
     <!-- DAYS OF THE WEEK CONTAINER -->
-    <div id="dayOfWeekContainer" class="columns is-justify-content-space-around is-flex-wrap-wrap">
-
-      <!-- MONDAY RECIPE -->
-      <div id="dayOfWeekCard" class="card column is-4">
-        <div class="card-image classImage">
-          <figure class="image is-4by3">
-                  
-          </figure>
-        </div>
-        <div class="card-content">
-          <div class="media"> 
-            <div class="media-content">
-              <p class="title is-4" id="recipeLink"><a> Click here for Recipe</a></p>
-            </div>
+    <div id="dayOfWeekContainer" class="column is-flex is-justify-content-space-between   is-flex-wrap-wrap ">
+      <!--Monday Container-->
+      <div  class="card column is-3 dayOfWeekCard" data-day="monday">
+        <div class="card-image droppable cardImg"></div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <h3 class="dayCard">Monday</h3>
+                <p class="title is-4" id="recipeLink"><a> Click here for Recipe</a></p>
+              </div>
           </div>
-          <div class="content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Phasellus nec iaculis mauris. 
-            <br />     
-          </div>
-        </div>
+                <div class="content">
+                <ul class="cardList"></ul></div></div>
       </div>
-      <!-- END OF MONDAY RECIPE -->
-
-      <!-- TUESDAY RECIPE -->
-      <div id="dayOfWeekCard" class="card column is-4">
-        <div class="card-image classImage">
-          <figure class="image is-4by3">
-              
-          </figure>
-        </div>
-        <div class="card-content">
-          <div class="media">
-            <div class="media-content">
-              <p class="title is-4" id="recipeLink"><a> Click here for Recipe</a></p>
-            </div>
-          </div>
-          <div class="content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Phasellus nec iaculis mauris. 
-            <br />
-          </div>
-        </div>
+      <!-- Tuesday container -->
+      <div data-day="tuesday" class="card column is-3 dayOfWeekCard">
+          <div class="card-image droppable cardImg"></div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-content">
+                  <h3 class="dayCard">Tuesday</h3>
+                  <p class="title is-4" id="recipeLink"><a> Click here for Recipe</a></p>
+                </div>
+              </div><div class="content"><ul class="cardList"></ul></div></div>
       </div>
-      <!-- END OF TUESDAY RECIPE -->
-
-      <!-- WEDNESDAY RECIPE -->
-      <div id="dayOfWeekCard" class="card column is-4">
-        <div class="card-image classImage">
-          <figure class="image is-4by3">
-              
-          </figure>
-        </div>
-        <div class="card-content">
-          <div class="media">
-            <div class="media-content">
-              <p class="title is-4" id="recipeLink"><a> Click here for Recipe</a></p>
-            </div>
-          </div>
-          <div class="content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Phasellus nec iaculis mauris. 
-            <br />
-          </div>
-        </div>
-      </div>
-      <!-- END OF WEDNESDAY RECIPE -->
-
-      <!-- THURSDAY RECIPE -->
-      <div id="dayOfWeekCard" class="card column is-4">
-        <div class="card-image classImage">
-          <figure class="image is-4by3">
-              
-          </figure>
-        </div>
-        <div class="card-content">
-          <div class="media">
-            <div class="media-content">
-              <p class="title is-4" id="recipeLink"><a> Click here for Recipe</a></p>
-            </div>
-          </div>
-          <div class="content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Phasellus nec iaculis mauris. 
-            <br />
-          </div>
-        </div>
-      </div>
-      <!-- END OF THURSDAY RECIPE -->
-
-      <!-- FRIDAY RECIPE -->
-      <div id="dayOfWeekCard" class="card column is-4">
-        <div class="card-image classImage">
-          <figure class="image is-4by3">
-              
-          </figure>
-        </div>
-        <div class="card-content">
-          <div class="media">
-            <div class="media-content">
-              <p class="title is-4" id="recipeLink"><a> Click here for Recipe</a></p>
-            </div>
-          </div>
-          <div class="content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Phasellus nec iaculis mauris.
-            <br />
-          </div>
-        </div>
-      </div>
-      <!-- END OF FRIDAY RECIPE -->
-
-      <!-- GROCERY LIST -->
-      <div id="dayOfWeekCard" class="card column is-4">
-        <div class="card-image">
-         
-        </div>
-        <div class="card-content">
-      
-          <div class="menu">
-            <h3 class="menu-label">Grocery List</h3>
-            
-            <ul class="groceryList menu-list"></ul>
-              <button id="txtBtn">Text List</button>
-              <button id="clearList">Remove List Item</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- END OF GROCERY LIST -->
-  
+      <!-- Wednesday Container-->
+      <div data-day="wednesday" class="card column is-3 dayOfWeekCard">
+    <div class="card-image droppable cardImg">
     </div>
-    <!-- END OF DAYS OF THE WEEK CONTAINER -->
+    <div class="card-content">
+      <div class="media">
+       
+        <div class="media-content">
+          <h3 class="dayCard">Wednesday</h3>
+          <p class="title is-4" ><a id="recipeLink"> Click here for Recipe</a></p>
+        </div>
+      </div>
   
-  </section>
-  <!-------------------------------END OF DAYS OF THE WEEK --------------------------------------->
+      <div class="content">
+        <ul class="cardList">
+        
+      </div>
+    </div>
+      </div>
+      <!-- Thursday container-->
+      <div data-day="thursday" class="card column is-3 dayOfWeekCard">
+    <div class="card-image droppable cardImg">
+    </div>
+    <div class="card-content">
+      <div class="media">
+       
+        <div class="media-content">
+          <h3 class="dayCard">Thursday</h3>
+          <p class="title is-4" id="recipeLink"><a> Click here for Recipe</a></p>
+        </div>
+      </div>
+  
+      <div class="content">
+        <ul class="cardList"></ul>
+        
+      </div>
+    </div>
+      </div>
+      <!-- GROCERY LIST CONTAINER-->
+      <div class="card column is-3 dayOfWeekCard">
+        <div class="card-image">
+     
+    </div>
+    <div class="card-content">
+  
+      <div class="menu">
+        <h3 class="menu-label">Grocery List</h3>
+        
+        <ul class="groceryList menu-list"></ul>
+          <button id="txtBtn">Text List</button>
+          <button id="clearList">Remove List Item</button>
+      </div></div></div>
+      <!-- FRIDAY CONTAINER-->
+      <div data-day="friday" class="card column is-3 dayOfWeekCard">
+    <div class="card-image droppable cardImg">
+    </div>
+    <div class="card-content">
+      <div class="media">
+       
+        <div class="media-content">
+          <h3 class="dayCard">Friday</h3>
+          <p class="title is-4" id="recipeLink"><a> Click here for Recipe</a></p>
+        </div>
+      </div>
+  
+      <div class="content">
+        <ul class="cardList"></ul>
+        
+      </div>
+    </div>
 
+      </div>
+</div>
+
+
+    
+    
+    
+    
+    </div>
+</section>
 </main>
-<!---------------------------------END OF MAIN SECTION ------------------------------------------->
-
-<!---------------------------------FOOTER SECTION ------------------------------------------------>
+<!-- FOOTER-->
 <footer class="footer">
   <section id="footerContainer" class="columns is-flex is-justify-content-center is-align-items-center is-flex-wrap-wrap">
     <div class="footSections card column is-3">

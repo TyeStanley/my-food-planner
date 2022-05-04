@@ -134,15 +134,15 @@ $(`#dayOfWeekSec`).click(function(event){
   // day of week class buttons
   var dayOfWeekBtns = event.classList.contains('daysBtns');
 
-  //!= currentDay
+  
 // if dat of the week button is selected and the event id isn't == to the previous one
-  if(dayOfWeekBtns   && event.id ){
+  if(dayOfWeekBtns   && event.id != currentDay){
    // select the card element with the same id and bring it up to the top
     $(`div[data-day=${event.id}]`).removeClass('dayOfWeekCard').addClass("btnSnap");
     return  currentDay = event.id;
   }
 //return element back to location
-  else if(dayOfWeekBtns){ $(`div[data-day=${event.id}]`).removeClass('btnSnap').addClass("dayOfWeekCard");
+  else if(dayOfWeekBtns){ $(`div[data-day="${event.id}"]`).removeClass('btnSnap').addClass("dayOfWeekCard");
         return currentDay = "";
 }
   else{
