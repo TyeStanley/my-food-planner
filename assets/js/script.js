@@ -6,121 +6,289 @@ const options = {
 	}
 };
 
+//Select the recipe results sections
+var divEL = $("#recipeResults");
+var currentData;
+var recipeIngredients=[""];
+var currentSave;
+var email;
+var titleArray;
+var weeklyRecipes;
 
-
-
-// creating a new div to house the pictures of food in 
- roughdraft
-var divEL = $("<div>").addClass("col-12 col-lg-8 row newDiv'");
-var clickHandlerText = ".YouChooseDiv";
-
-    //Function to pull recipes from data base
-    var createRecipes = function(choice){
+// Drag and drop function
+var draggableUnit = function(){
+  $( ".newDiv" ).draggable({
+    helper: "clone",
+    scroll: true,
+    scrollSensitivity: 100,
+    scrollSpeed: 25,
+    snap: true ,
+    zIndex: 2000,
+    appendTo: "#dayOfWeekSec"
+  });
+  $( ".droppable" ).droppable({
+    drop: function( event, ui ) {
+        var dropped = ui.draggable;
+        var i = dropped[0].attributes[3].textContent;
+        var droppedOn = $(this);
+        $(droppedOn).html("");
+        $(dropped).detach().removeClass("column is-one-fifth newDiv ui-draggable ui-droppable").addClass("image is-4by3 figureImg").appendTo(droppedOn);
+        $('.recipeH3').addClass("recipeH3Active");
+      $( this )
         
+      
+        $('.recipeH3').addClass("recipeH3Active");
+        // adds recipe link dynamicly to the card dropped on
+        $(droppedOn[0].parentNode.childNodes[3].childNodes[1].childNodes[1].childNodes[3].childNodes[0]).attr({href : `${currentData.hits[i].recipe.url}`,
+                                                                                                               target: "_blank" 
+        });
+        findIngredients(i, droppedOn);
+        $(droppedOn[0].parentElement).removeClass('btnSnap').addClass("dayOfWeekCard");
+        currentSave = droppedOn[0].parentNode.parentElement.outerHTML;
+        saveToStorage(currentSave);
+        
+        
+        $(".newDiv").remove();
+    }
+    
+  });
 
+};
+
+var findIngredients = function(i, droppedOn){
+  recipeIngredients = [""];
+  var ingredients = currentData.hits[i].recipe.ingredients;
+  var title  = currentData.hits[i].recipe.label
+  var currentI = i;
+  $(".groceryList").append(`<br><h4>${title} Ingredients:</h4></br> <ul class="li${i}">`);
+  for(var i = 0; ingredients.length > i; i++){
+    var ingr = droppedOn[0].parentNode.childNodes[3].childNodes[3].childNodes[1];
+    // create an array of ingredients
+    recipeIngredients.push(ingredients[i].text);
+    // append ingredent list to the element its dropped on
+    $(droppedOn[0].parentNode.childNodes[3].childNodes[3].childNodes[1]).append(`<li class="cardListEl">${recipeIngredients[i + 1]}</li>`);
+      // appends ingredients to current list heading
+    $(`.li${currentI}`).append(`<li>${recipeIngredients[i+1]}</li>`);
+    
+
+    
+  }
+  $(`.li${currentI}`).removeAttr("class")
+  
+}
+//Function to pull recipes from data base
+var createRecipes = function(choice){
         // url for the recipe database
         var recipeApiUrl = `https://edamam-recipe-search.p.rapidapi.com/search?q=${choice}`;
+        
 
         //Fetch call to database to find recipes based on query
-        fetch(recipeApiUrl, options)
-
-        //if there is a response from database convert it to json
- 	    .then(function(response){
-            //return json verison of response to data
-            return response.json();
+        fetch(recipeApiUrl, options).then(function(response){
+            return response.json()
         })
-        //if there is data then
         .then(function(data){
-            //console log the data options
-            console.log(data);
-
+            currentData = data;
+        
             //setting variable for recipe length
             var tenRecipes = 8;
             divEL.html("");
+            
             // loop through the data using the desired length
             for(var i = 0 ; i < tenRecipes; i++){
              
             //create a new div element to hold the pictures from the recipes
-             var newSmallDiv = $("<div>").addClass('col-2 newDiv');
+             var newSmallDiv = $("<figure>").addClass('column is-one-fifth newDiv image');
+                 newSmallDiv.attr("id", "draggable");
                 //take the new div and set its background image to the picture of the food and cover the full div.
-                 newSmallDiv.attr('style',`background-image:url(${data.hits[i].recipe.image});background-size:cover`);
+                 newSmallDiv.attr('style',`background-image:url(${data.hits[i].recipe.image})`);
+                 newSmallDiv.attr('data',`${i}`);
                  //append food imaged div to div container element
-                 divEL[0].append(newSmallDiv[0]);
-                 
-                 
+                 divEL.append(newSmallDiv[0]);
                 //create an h3 element and set a class to element
                  var h3El =$('<h3>').addClass('recipeH3');
                  // set the text of h2 to the recipe label
                  h3El.text(`${data.hits[i].recipe.label}`);
                  //append to photo div
                  newSmallDiv[0].append(h3El[0]);
+                 
 }
+$('#recipeSearch').val("");
+  return draggableUnit();   
 }) 
+
 	// if there is an error with query catch it and console log
  	.catch(err => console.error(err));
 }
 
 //event listener function for form field
-var starteventListener = function(){
-    // listen for the click on the search form button
-    $(`${clickHandlerText}`).submit(function(event){
+$(`#user-form`).submit(function(event){
+    
     //get the value from the search field
     var recipeText = $('#recipeSearch').val();
     //takes value and starts search function
     createRecipes(`${recipeText}`);
-    recipeText = "";
+    event.preventDefault();  
+}) 
+var currentDay;
+// LISTENER FOR CLICKS IN CARD SECTION 
+$(`#dayOfWeekSec`).click(function(event){
+  // event target variable
+  var event = event.target;
+  // day of week class buttons
+  var dayOfWeekBtns = event.classList.contains('daysBtns');
+
+  
+// if dat of the week button is selected and the event id isn't == to the previous one
+  if(dayOfWeekBtns   && event.id != currentDay){
+   // select the card element with the same id and bring it up to the top
+    $(`div[data-day=${event.id}]`).removeClass('dayOfWeekCard').addClass("btnSnap");
+    return  currentDay = event.id;
+  }
+//return element back to location
+  else if(dayOfWeekBtns){ $(`div[data-day="${event.id}"]`).removeClass('btnSnap').addClass("dayOfWeekCard");
+        return currentDay = "";
+}
+  else{
+    return;
+}
+  
+})
 
 
+// TOUCH SCREEN CONTROLLS SO DRAG AND DROP WORKS
+function touchHandler(event) {
+  var touch = event.changedTouches[0];
 
-})  
+  var simulatedEvent = document.createEvent("MouseEvent");
+      simulatedEvent.initMouseEvent({
+      touchstart: "mousedown",
+      touchmove: "mousemove",
+      touchend: "mouseup"
+  }[event.type], true, true, window, 1,
+      touch.screenX, touch.screenY,
+      touch.clientX, touch.clientY, false,
+      false, false, false, 0, null);
+
+  touch.target.dispatchEvent(simulatedEvent);
+  event.preventDefault();
 }
 
-// listener for button click adds code for search field
-$('.topSection').click(function(event){
-    // set event target to variable
-    var event = event.target;
-    // selecting the div that holds the you choose recipe options
-    var searchRecipeDiv = $('.youChooseDiv');
-    //select the random select div container
-    var randomRecipeDiv = $('.randomDiv');
-    
+function init() {
+  document.addEventListener("touchstart", touchHandler, true);
+  document.addEventListener("touchmove", touchHandler, true);
+  document.addEventListener("touchend", touchHandler, true);
+  document.addEventListener("touchcancel", touchHandler, true);
+}
+
+// function to save to local storage
+var saveToStorage = function(currentSave){
+    // takes the current state of the daysOfWeek section and saves it to local storage
+     localStorage.setItem('currentDiv', currentSave );
+
+}
+
+// function to load local storage
+var loadSave = function(){
+  // search local storage for currentDiv key
+  var getItem = localStorage.getItem('currentDiv');
+  // if there is content then select the main container and set it to that 
+  if(getItem){
+    $('#dayOfWeekContainer')[0].outerHTML = getItem;
+  }
+}
+
+
+var textToEmail = function() {
+
+  email = email.trim();
   
-    // if the event id equal to #searchRecBtn
-    if(event.id === "searchRecBtn"){
-        // remove the class from the you choose div container
-        searchRecipeDiv.removeClass("youChooseDiv col-12 col-lg-6 text-white white-line d-flex flex-column");
-        // add a new class that adjust the coloum of you choose container
-        searchRecipeDiv.addClass("youChooseDiv col-12 col-lg-4 text-white  d-flex flex-column");
-        // set html that creates new form field and search and back to home buttons    
-        searchRecipeDiv.html(`
-        <h2 class="getStartedH2 text-center">Search a recipe</h2>
-        <div class="formDiv">
-            <form onsubmit='return false;' id="user-form" class="searchRecForm d-flex flex-column">
-                <input type="text" name="recipeSearch" id="recipeSearch" autofocus="true" placeholder="beef stew" class="form-input p-2 w-53" />
-                <button type="submit" id="search" class="btn btn-info w-53 mt-3">Search</button>
-                <button type="button" id="resetBtn" class="btn btn-info w-53 mt-3">Back to Home</button>
-            </form>
-        </div>`
-        );
-        clickHandlerText = "#user-form";
-        
-        
-        //remove random selecion div
-        randomRecipeDiv.remove();
-
-        
-        // select row div container holder the two search fields
-        var newDiv = $('div[class="row-div row"]');
-        //append the div that houses pictures to the two classes 
-         newDiv.append(divEL[0]);
-        // starts new event listener function
-        return starteventListener();
-
-        }
-        
     
-    });
+  const options = {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      'X-RapidAPI-Host': 'easymail.p.rapidapi.com',
+      'X-RapidAPI-Key': 'eb43b08f3fmsh10848c7bb34f19cp12b721jsncaced0890350'
+    },
+    body: `{"from":"Your Weekly Recipes Are Here","to":"${email}","subject":"Here is your Grocery List : ","message":"${weeklyRecipes}"}`
+  };
+  
+  fetch('https://easymail.p.rapidapi.com/send', options)
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
+    $('.modal').removeClass("is-active is-clipped");
+    $('#emailInput').val("");
+}
+
+
+  // listen for a submit from email form
+  $("#emailForm").submit(function(event){
+    
+    // if there is a submit grab the email value from input field and save it
+   email = $('#emailInput').val();
+   // call text to email function with recipe and email 
+   // prevent page refresh
+   
+    textToEmail();
+    event.preventDefault(); 
+  })
+  
+
+// if the X is clicked close modal
+$('.modal-close').click(function(){
+  $('.modal').removeClass("is-active is-clipped");
+
+})
 
 
 
+// listern for the grocery list buttons div 
+$(".grocBtns").click(function(event){
+  
+  // sets the event target to var 
+  var event = event.target;
+  // checks to see if the event contains the minimizeBTN class list
+  var miniBtn = event.classList.contains('minBtn');
+  //checks to see if the event contains the event has clearListItem class 
+  var removeItemBtn = event.classList.contains('clearListItem');
+  // checks to see if the event contains the emailBtn Class
+  var emailBtn = event.classList.contains("emailBtn");
+ 
+  // if it is the minBtn then use slide toggle
+  if(miniBtn){
+      $(".groceryContent").slideToggle();
+      
+      if($('#minimized')[0].classList.contains("invisible")){
+        $('#minimized').removeClass("invisible").addClass('visible');
+      } 
+      else{
+        $('#minimized').removeClass("visible").addClass('invisible');
+      }
+  }
+  else if(removeItemBtn){
+    localStorage.removeItem('currentDiv');
+    location.reload();
+    
+  }
+  else if(emailBtn){
+    $('.modal').addClass("is-active is-clipped");
+    
+    // Gets the list in the form of HTML from grocery list
+     weeklyRecipes = $('.groceryList')[0].innerHTML;
+   
+    
+  }
+  else{
+    return;
+  }
+  
 
+
+
+ 
+});
+
+
+
+loadSave();

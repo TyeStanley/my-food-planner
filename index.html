@@ -4,73 +4,236 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=100, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <!-- Links for CSS / FONTS / ICONS -->
+    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./assets/stylesheet/stylesheet.css" />
+    <!-- Page Title -->
     <title>Weekly Food Planner</title>
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="mainHeader bg-dark text-white p-2">
-        <h1 class="headerH1 text-center">Weekly Food Planner</h1>
-    </header>
+<!-------------------------------------------------- Header Section ---------------------------------->
+<header>
+  <!-- Main navbar-->
+  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <!-- nav bar title -->
+    <div class="navbar-brand brand">
+      <a class="navbar-item">
+        <h1 class="navBarH1">My Food Planner</h1>
+      </a>
+    </div>
+    <!-- Nav Bar links -->
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-end">
+        <a href="#" class="navbar-item navBarText">Home</a>
+        <a href="#footerContainer" class="navbar-item navBarText">Footer</a>
+      </div>
+    </div>
+  </nav>   
+</header>
+  <!----------------- End of Header Section----------------------------------------------------------->
 
-    <!-- Main Content -->
-    <main class="mainClass mt-1">
+  <!------------------- Main Section ----------------------------------------------------------------->
+<main class="mainSection">
 
-        <!-- Top Section -->
-        <section class="topSection container bg-dark ">
-            <!-- Row for two button div-->
-            <div class="row-div row">
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
 
-                <!-- Button 1 -->
-                <div class="youChooseDiv col-12 col-lg-4 text-white white-line d-flex flex-column">
-                    <h2 class="getStartedH2 text-center">Search a recipe</h2>
-                    <div class="topBtnDiv row">
-                        <button id="searchRec"class="pickBtn col-12">Search a Recipe</button>
-                    </div>
-                </div>
+    <!-- Hero Body Section-->
+    <div class="hero-body">
+      <!-- Content from hero form -->
+      <div id="heroSectionContainer" class="container columns">
+        <!-- Hero Form -->
+        <form id="user-form" class="field column is-3">
+          <!-- Form Label-->
+          <label class="formLabel" for="foodType">
+            <p>Search For Recipes:</p>
+          </label>
+          <!-- Input Text Box -->
+          <input class="input" type="text" placeholder="Search a Recipe" name="foodType" id="recipeSearch" />
+          <!-- form submit button -->
+          <button id="searchRecBtn" class="button is-normal is-responsive" type="submit">Search</button>
+        </form>
+        <!-- Empty column to house recipe results-->
+        <div id="recipeResults" class="column is-9 columns is-flex-wrap-wrap"></div> 
+      </div>
+    </div>
 
-                <!-- Button 2 -->
-                <div class="randomDiv col-12 col-lg-6 text-white  white-line">
-                <div class="youChooseDiv col-12 col-lg-6 text-white  d-flex flex-column">
-                    <h2 class="getStartedH2 text-center">Search a recipe</h2>
-                    <div class="topBtnDiv row">
-                        <button id="searchRecBtn"class="pickBtn col-12">Search a Recipe</button>
-                        
-                    </div>
+  </section>
+  <!--------------------------------END OF HERO SECTION ------------------------------------------>
 
-                </div>
-                <div class="randomDiv col-12 col-lg-6 text-white  ">
-                    <h2 class="randomH2 text-center">Pick a random recipe</h2>
-                    <div class="topBtnDiv">
-                        <button class="pickBtn">Random Recipe</button>
-                    </div>
-                </div>
+  <!------------------------------START OF DAYS OF THE WEEK -------------------------------------->
+  <section class="section" id="dayOfWeekSec">
 
+    <!-- EACH DAY BUTTON -->
+    <div class="columns is-justify-content-center is-justify-content-space-between is-hidden-mobile">
+      <button id="monday" class="button daysBtns column is-2">Monday</button>
+      <button id="tuesday"class="button daysBtns column is-2">Tuesday</button>
+      <button id="wednesday" class="button daysBtns column is-2">Wednesday</button>
+      <button id="thursday" class="button daysBtns column is-2">Thursday</button>
+      <button id="friday" class="button daysBtns column is-2">Friday</button>
+    </div>
+    <!-- END OF EACH DAY BUTTON -->
+  
+    <!-- DAYS OF THE WEEK CONTAINER -->
+    <div id="dayOfWeekContainer" class="column is-flex is-justify-content-space-between is-flex-wrap-wrap">
+
+      <!--Monday Container-->
+      <div  class="card column is-3 dayOfWeekCard" data-day="monday">
+        <div class="card-image droppable cardImg"></div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <h3 class="dayCard">Monday</h3>
+              <p class="title is-4" id="recipeLink"><a> Click here for Recipe</a></p>
             </div>
+          </div>
+          <div class="content">
+            <ul class="cardList"></ul>
+          </div>
+        </div>
+      </div>
 
-        </section>
-
-        <!-- Bottom - Days of the Week -->
-        <section class="bottomSection container container bg-dark">
-        <!-- Bottom Section -->
-        <section class="bottomSection container container bg-dark white-line">
-            <div class="dayDiv row">
-                <div class="col-12 col-lg-4 white-border"><h3 class="dayOfWeek">Monday</h3></div>
-                <div class="white-border col-12 col-lg-4"><h3 class="dayOfWeek">Tuesday</h3></div>
-                <div class="white-border col-12 col-lg-4"><h3 class="dayOfWeek">Wednesday</h3></div>
-                <div class="white-border col-12 col-lg-4"><h3 class="dayOfWeek">Thursday</h3></div>
-                <div class="white-border col-12 col-lg-4"><h3 class="dayOfWeek">Friday</h3></div>
-                <div class="white-border col-12 col-lg-4"><h3 class="dayOfWeek">Saturday</h3></div>
-                <div class="white-border col-12 col-lg-4"><h3 class="dayOfWeek">Sunday</h3></div>-
+      <!-- Tuesday container -->
+      <div  class="card column is-3 dayOfWeekCard" data-day="tuesday">
+        <div class="card-image droppable cardImg"></div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <h3 class="dayCard">Tuesday</h3>
+              <p class="title is-4" id="recipeLink"><a> Click here for Recipe</a></p>
             </div>
+          </div>
+          <div class="content">
+            <ul class="cardList"></ul>
+          </div>
+        </div>
+      </div>
 
-        </section>
+      <!-- Wednesday Container-->
+      <div data-day="wednesday" class="card column is-3 dayOfWeekCard">
+        <div class="card-image droppable cardImg"></div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <h3 class="dayCard">Wednesday</h3>
+              <p class="title is-4" ><a id="recipeLink"> Click here for Recipe</a></p>
+            </div>
+          </div>
+          <div class="content">
+            <ul class="cardList"></ul>
+          </div>
+        </div>
+      </div>
 
-    </main>
+      <!-- Thursday container-->
+      <div data-day="thursday" class="card column is-3 dayOfWeekCard">
+        <div class="card-image droppable cardImg"></div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <h3 class="dayCard">Thursday</h3>
+              <p class="title is-4" id="recipeLink"><a> Click here for Recipe</a></p>
+            </div>
+          </div>
+          <div class="content">
+            <ul class="cardList"></ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- GROCERY LIST CONTAINER-->
+      <div class="card column is-3 dayOfWeekCard ">
+        <div class="card-image"></div>
+        <div class="card-content">
+          <h3 class="menu-label groceryH3">Grocery List</h3>
+          <h4 id ="minimized" class="invisible">Press minimize to open</h4>
+          <div class="menu groceryContent">
+            
+            <ul class="menu-list groceryList"></ul>
+          </div>
+        </div>
+      </div> 
 
-    <!-- add script at the bottom of the body -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="./assets/js/script.js"></script>
+      <!-- FRIDAY CONTAINER-->
+      <div data-day="friday" class="card column is-3 dayOfWeekCard">
+        <div class="card-image droppable cardImg"></div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <h3 class="dayCard">Friday</h3>
+              <p class="title is-4" id="recipeLink"><a> Click here for Recipe</a></p>
+            </div>
+          </div>
+          <div class="content">
+            <ul class="cardList"></ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- END OF DAYS OF THE WEEK CONTAINER -->
+
+    <div class="columns is-align-content-center is-justify-content-center is-align-items-center is-align-content-space-evenly  grocBtns ">
+      <button id="emailBtn" class="button is-normal emailBtn">Email List</button>
+      <button id="clearListItem" class="button is-normal clearListItem">Clear Recipes</button>
+      <button id="minBtn" class="minBtn button is-normal"> Minimize</button>
+      <div class="modal">
+        
+        
+      <!-- Modal to get user email info-->
+        <div class="modal-background"></div>
+        <div class="modal-content">
+          <!-- form -->
+          <form class="field" id = "emailForm">
+            <label class="label is-medium" id="emailLabel">Please Enter Your Email:</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input is-medium" type="email" placeholder="johndoe@gmail.com" id ="emailInput">
+              <button id="emailSubmit" class="button is-normal is-responsive" type="submit">Submit</button>
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope fa-xs"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fas fa-check fa-xs"></i>
+              </span>
+            </div>
+          </form>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+      </div>
+    </div>
+
+  </section>
+<!------------------------------- END OF DAYS OF THE WEEK ---------------------------------------->
+
+</main>
+<!----------------------------------- FOOTER ----------------------------------------------------->
+<footer class="footer">
+  <section id="footerContainer" class="columns is-flex is-justify-content-center is-align-items-center is-flex-wrap-wrap">
+    <div class="footSections card column is-6">
+      <h3 class="footHeader">DEVELOPERS</h3>
+      <ul class="listOfDev is-justify-content-center is-flex is-flex-wrap-wrap">
+        <a href="https://github.com/TyeStanley" target="_blank"><li class="devNames">Tye Stanley - GitHub</li></a>
+        <span>&nbsp|&nbsp</span>
+        <a href="https://github.com/Azariill" target="_blank"><li class="devNames">Scott Heier - GitHub</li></a>
+        <span>&nbsp|&nbsp</span>
+        <a href="https://github.com/Avii004" target="_blank"><li class="devNames">Graciela Navarro - GitHub</li></a>
+        <span>&nbsp|&nbsp</span>
+        <a href="https://github.com/AlexisR3099" target="_blank"><li class="devNames">Alexis Ramos - GitHub</li></a>
+      </ul>
+    </div>
+  </section>
+</footer>
+<!---------------------------------END OF FOOTER SECTION ----------------------------------------->
+
+  <!-- add script at the bottom of the body -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/draggable/1.0.0-beta.12/draggable.min.js" integrity="sha512-VTqyB/kLQGaTnF5kYAgeEFo8fwqdlAGNUQeoQi4EOmmBYTEQ/XrYC7lnzCvBBp1PR+1ODEQiT075oeUdPeFHwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-ui-touch-punch@0.2.3/jquery.ui.touch-punch.min.js"></script>
+  <script src="./assets/js/script.js"></script>
+  
 </body>
 </html>
