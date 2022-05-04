@@ -251,7 +251,17 @@
 }
 /* END OF FOOTER SECTION */
 
-
+#results{
+    color: black;
+    font-size: 20px;
+    font-weight: bolder;
+}
+.calc-wrap h3{
+    margin-bottom: 10px;
+    font-size: 22px;
+    color: black;
+    font-weight: bolder;
+}
 
 @media only screen and (max-width: 600px) {
     #hero{
