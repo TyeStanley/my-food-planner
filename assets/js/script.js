@@ -21,7 +21,12 @@ var draggableUnit = function(){
     scroll: true,
     scrollSensitivity: 100,
     scrollSpeed: 25,
-    snap: true 
+    snap: true ,
+    zIndex: 2000,
+    appendTo: "#dayOfWeekSec"
+
+    
+
   });
   $( ".droppable" ).droppable({
     drop: function( event, ui ) {

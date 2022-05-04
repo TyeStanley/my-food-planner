@@ -87,7 +87,7 @@
     margin-top: 10px;
     border: 1px solid black;
     box-shadow: 20px 20px 55px #404040; 
-    z-index: 5;
+    
 }
 .recipeH3 { /* Does this not have anything for it? */
     opacity:0;
@@ -200,7 +200,7 @@
 
 /* FOOTER SECTION */
 .footer {
-    background-color:#201610;
+    background-color: #2d2c2b;
 }
 .footSections {
     border: 1px solid black;
@@ -231,3 +231,11 @@
     color: white;
 }
 /* END OF FOOTER SECTION */
+
+
+
+@media only screen and (max-width: 600px) {
+    #hero{
+        overflow:scroll;
+    }
+  }
