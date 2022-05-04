@@ -201,6 +201,9 @@
 /* START OF CALORIE CALCULATOR*/
 .calc-wrap {
     background-color: #ffffffcc;
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
     padding: 10px 10px;
     border-radius: 10px;
     box-shadow: 1px 10px 15px #000000;
@@ -208,13 +211,17 @@
 }
 
 .calc-wrap h3 {
+    margin-bottom: 10px;
     text-align: center;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 .info-form {
     display: flex;
     justify-content: space-around;
 }
+/* END OF CALORIE CALCULATOR STYLING */
 
 
 /* FOOTER SECTION */
@@ -268,3 +275,10 @@
         overflow:scroll;
     }
   }
+
+@media screen and (max-width: 575px) {
+    .info-form {
+        flex-wrap: wrap;
+    }
+}
+    
