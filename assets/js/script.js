@@ -217,6 +217,35 @@ var textToEmail = function() {
   
 }
 
+$(".grocBtns").click(function(event){
+  var event = event.target;
+  var miniBtn = event.classList.contains('minBtn');
+  var removeItemBtn = event.classList.contains('clearListItem');
+  var emailBtn = event.classList.contains("emailBtn");
+ 
+  if(miniBtn){
+      $(".groceryList").slideToggle();
+      console.log("min");
+  }
+  else if(removeItemBtn){
+    console.log("remove");
+
+  }
+  else if(emailBtn){
+    
+    console.log($('groceryList'));
+
+  }
+  else{
+    return;
+  }
+  
+
+
+
+ 
+});
+
 
 //textToEmail();
 loadSave();

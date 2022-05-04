@@ -41,11 +41,11 @@
 /* FORM */
 #user-form {
     text-align: center;
-    background: #00000014;
-    height: 100%;
-    margin-top: 45px;
-    box-shadow: 1px 1px 5px #000000; 
-    padding-bottom: 185px;
+    background:  #2d2c2b0d;
+    margin-top: 4px;
+    box-shadow: inset 1px 1px 5px #000000; 
+    padding-bottom: 140px;
+    border-radius: 20px
 }
 .formLabel {
     font-size: 25px;
@@ -231,11 +231,32 @@
     color: white;
 }
 /* END OF FOOTER SECTION */
+.grocBtns {
+    margin-top : 20px;
+    margin-left: -50px;
+    
+}
 
-
+.grocBtns button{
+    
+    margin-right: 10px;
+    font-weight: bolder;
+    border: 1px solid black;
+}
+.groceryH3{
+    font-size: 25px;
+    color: black;
+    font-weight: bolder;
+}
 
 @media only screen and (max-width: 600px) {
     #hero{
         overflow:scroll;
+        
     }
+   .grocBtns {
+    margin-top : 20px;
+    margin-left: 15px;
+    
+}
   }

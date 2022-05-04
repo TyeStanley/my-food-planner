@@ -142,6 +142,7 @@
       </div>
     </div>
       </div>
+      
       <!-- GROCERY LIST CONTAINER-->
       <div class="card column is-3 dayOfWeekCard">
         <div class="card-image">
@@ -149,13 +150,10 @@
     </div>
     <div class="card-content">
   
-      <div class="menu">
-        <h3 class="menu-label">Grocery List</h3>
-        
-        <ul class="groceryList menu-list"></ul>
-          <button id="txtBtn">Text List</button>
-          <button id="clearList">Remove List Item</button>
-      </div></div></div>
+      <div class="menu ">
+        <h3 class="menu-label groceryH3">Grocery List</h3>
+        <ul class="groceryList menu-list"></ul></div>
+        </div></div> 
       <!-- FRIDAY CONTAINER-->
       <div data-day="friday" class="card column is-3 dayOfWeekCard">
     <div class="card-image droppable cardImg">
@@ -177,14 +175,18 @@
 
       </div>
 </div>
+</div>
 
 
-    
-    
-    
-    
-    </div>
+<div class=" columns is-align-content-center is-justify-content-center is-align-items-center is-align-content-space-evenly  grocBtns ">
+  <button id="emailBtn" class="button is-normal emailBtn">Email List</button>
+  <button id="clearListItem" class="button is-normal clearListItem">Remove Items</button>
+  <button id="minBtn" class="minBtn button is-normal"> Minimize</button>
+
+</div>
+
 </section>
+
 </main>
 <!-- FOOTER-->
 <footer class="footer">
