@@ -61,7 +61,7 @@ var findIngredients = function(i, droppedOn){
   var ingredients = currentData.hits[i].recipe.ingredients;
   var title  = currentData.hits[i].recipe.label
   var currentI = i;
-  $(".groceryList").append(`<br><h4>${title} Ingredients: <ul class="li${i}"></h4><br>`);
+  $(".groceryList").append(`<br><h4>${title} Ingredients:</h4></br> <ul class="li${i}">`);
   for(var i = 0; ingredients.length > i; i++){
     var ingr = droppedOn[0].parentNode.childNodes[3].childNodes[3].childNodes[1];
     // create an array of ingredients
@@ -91,7 +91,7 @@ var createRecipes = function(choice){
           //console log the data options
             //console.log(data);
             currentData = data;
-
+        
             //setting variable for recipe length
             var tenRecipes = 8;
             divEL.html("");
@@ -113,6 +113,7 @@ var createRecipes = function(choice){
                  h3El.text(`${data.hits[i].recipe.label}`);
                  //append to photo div
                  newSmallDiv[0].append(h3El[0]);
+                 
 }
 $('#recipeSearch').val("");
   return draggableUnit();   
@@ -201,10 +202,9 @@ var loadSave = function(){
 
 
 var textToEmail = function() {
-  debugger;
+
   email = email.trim();
-  console.log(email);
-  console.log()
+  
     
   const options = {
     method: 'POST',
@@ -227,7 +227,7 @@ var textToEmail = function() {
 
   // listen for a submit from email form
   $("#emailForm").submit(function(event){
-    debugger;
+    
     // if there is a submit grab the email value from input field and save it
    email = $('#emailInput').val();
    // call text to email function with recipe and email 
@@ -279,8 +279,8 @@ $(".grocBtns").click(function(event){
     
     // Gets the list in the form of HTML from grocery list
      weeklyRecipes = $('.groceryList')[0].innerHTML;
-    // split the list at the UL element 
-    console.log(weeklyRecipes);
+   
+    
   }
   else{
     return;

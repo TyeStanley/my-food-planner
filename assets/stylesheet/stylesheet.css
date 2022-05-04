@@ -284,8 +284,18 @@ a li {
 }
 .groceryList{
     font-size: 19px;
-    color: black;
-    text-shadow: 1px 1px 2px #757575eb;
+    color: #4f4d4d;
+    text-shadow: 1px 1px 2px #757575c7;
+}
+.groceryList h4{
+    color: #ff0000;
+     text-shadow: 1px 1px 2px #ffffffc7;
+    text-decoration: underline;
+    font-weight: bolder;
+    
+}
+.groceryList li{
+    font-weight: bolder;
 }
 
 #emailLabel{
