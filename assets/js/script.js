@@ -12,7 +12,7 @@ var currentData;
 var recipeIngredients=[""];
 var currentSave;
 var email;
-var weeklyRecipes;
+
 
 // Drag and drop function
 var draggableUnit = function(){
@@ -197,7 +197,7 @@ var loadSave = function(){
 }
 
 
-var textToEmail = function() {
+var textToEmail = function(weeklyRecipes) {
 
   const options = {
     method: 'POST',
@@ -205,14 +205,16 @@ var textToEmail = function() {
       'content-type': 'application/json',
       'X-RapidAPI-Host': 'easymail.p.rapidapi.com',
       'X-RapidAPI-Key': '75782cec53msh272191a679e4c13p1ef88bjsn0d39f3ec32a8'
-    },
-    body: `{"from":{"name":"My Food Planner"},"to":{"name":"Hey there","address":${email}},"subject":"Weekly Food Planner","message":"Here is your weekly recipe guide${weeklyRecipes}","show_noreply_warning":true}`
+    },                                                                                        //${weeklyRecipes}
+    body: `{"from":"Example","to":"heierms@gmail.com","subject":"This is the mail subject","message":"<li>2 tbsp. chili powder</li><li>1 tbsp. cayenne</li><li>1 8-10-lb. beef brisket</li><li>1 cup apple juice</li></ul>"}`
   };
   
   fetch('https://easymail.p.rapidapi.com/send', options)
     .then(response => response.json())
     .then(response => console.log(response))
     .catch(err => console.error(err));
+
+      
 
   
 }
@@ -233,7 +235,28 @@ $(".grocBtns").click(function(event){
   }
   else if(emailBtn){
     
-    console.log($('groceryList'));
+    var weeklyRecipes = $('.groceryList')[0].childNodes[0].innerHTML;
+    // get this class from dom 
+    var titleArray = weeklyRecipes.split("<ul class=\"li4\">");
+    console.log(titleArray);
+    weeklyRecipes = titleArray[1];
+    
+    //textToEmail(weeklyRecipes);
+    
+    // var arrayIng = titleArray[1].split(".");
+    // var recTitle = `Your ${titleArray[0]} ${arrayIng[0]} are:\n`;
+
+  //  for(var i = 1; i < arrayIng.length; ++i){
+
+      
+  //     weeklyRecipes += "\n" + arrayIng[i];
+       console.log(titleArray);
+
+
+
+ 
+  //   }
+    
 
   }
   else{
