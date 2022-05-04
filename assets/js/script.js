@@ -12,7 +12,9 @@ var currentData;
 var recipeIngredients=[""];
 var currentSave;
 var email;
-
+var recTitle;
+var titleArray;
+var weeklyRecipes;
 
 // Drag and drop function
 var draggableUnit = function(){
@@ -24,9 +26,6 @@ var draggableUnit = function(){
     snap: true ,
     zIndex: 2000,
     appendTo: "#dayOfWeekSec"
-
-    
-
   });
   $( ".droppable" ).droppable({
     drop: function( event, ui ) {
@@ -203,6 +202,7 @@ var loadSave = function(){
 
 
 var textToEmail = function(recTitle,weeklyRecipes) {
+  console.log(email);
     
   const options = {
     method: 'POST',
@@ -211,7 +211,7 @@ var textToEmail = function(recTitle,weeklyRecipes) {
       'X-RapidAPI-Host': 'easymail.p.rapidapi.com',
       'X-RapidAPI-Key': '75782cec53msh272191a679e4c13p1ef88bjsn0d39f3ec32a8'
     },                                                                                       
-    body: `{"from":"Example","to":"heierms@gmail.com","subject":"This is the mail subject","message":"${recTitle + weeklyRecipes}"}`
+    body: `{"from":"Example","to":"${email}","subject":"This is the mail subject","message":"${recTitle + weeklyRecipes}"}`
   };
   
   fetch('https://easymail.p.rapidapi.com/send', options)
@@ -221,8 +221,33 @@ var textToEmail = function(recTitle,weeklyRecipes) {
 
 }
 
+// modal event listeners
+var modalListener = function(){
+  // listen for a submit from email form
+  $("#emailForm").submit(function(event){
+    // if there is a submit grab the email value from input field and save it
+   email = $('#emailInput').val();
+   // call text to email function with recipe and email 
+   textToEmail(recTitle, weeklyRecipes, email);
+    // clear email input
+    $('#emailInput').val("");
+   // close modal
+   $('.modal').removeClass("is-active is-clipped");
+   // prevent page refresh
+   event.preventDefault();
+  
+})
+// if the X is clicked close modal
+$('.modal-close').click(function(){
+  $('.modal').removeClass("is-active is-clipped");
+
+})
+}
+
+
 // listern for the grocery list buttons div 
 $(".grocBtns").click(function(event){
+  modalListener();
   // sets the event target to var 
   var event = event.target;
   // checks to see if the event contains the minimizeBTN class list
@@ -240,18 +265,22 @@ $(".grocBtns").click(function(event){
     
   }
   else if(emailBtn){
+    $('.modal').addClass("is-active is-clipped");
+    
     // Gets the list in the form of HTML from grocery list
-    var weeklyRecipes = $('.groceryListTitle')[0].innerHTML;
+     weeklyRecipes = $('.groceryListTitle')[0].innerHTML;
     // split the list at the UL element 
-    var titleArray = weeklyRecipes.split("<ul>");
+     titleArray = weeklyRecipes.split("<ul>");
     // set the first part at the title
-    var recTitle = titleArray[0];
+     recTitle = titleArray[0];
     // set the second part as the ingre
     weeklyRecipes = titleArray[1];
     // add h1 to title for email formating 
     recTitle = `<h1>${recTitle}</h1>`;
+
+    console.log(email);
     // call the email function
-    textToEmail(recTitle, weeklyRecipes);
+    //textToEmail(recTitle, weeklyRecipes);
   }
   else{
     return;

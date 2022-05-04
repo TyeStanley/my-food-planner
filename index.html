@@ -177,6 +177,29 @@
       <button id="emailBtn" class="button is-normal emailBtn">Email List</button>
       <button id="clearListItem" class="button is-normal clearListItem">Remove Items</button>
       <button id="minBtn" class="minBtn button is-normal"> Minimize</button>
+      <div class="modal">
+        
+        
+      <!-- Modal to get user email info-->
+        <div class="modal-background"></div>
+        <div class="modal-content">
+          <!-- form -->
+          <form class="field" id = "emailForm">
+            <label class="label is-medium">Please Enter Your Email</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input is-medium" type="email" placeholder="johndoe@gmail.com" id ="emailInput">
+              <button id="emailSubmit" class="button is-normal is-responsive" type="submit">submit</button>
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope fa-xs"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fas fa-check fa-xs"></i>
+              </span>
+            </div>
+          </form>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+      </div>
     </div>
 
   </section>
