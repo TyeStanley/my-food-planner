@@ -1,8 +1,8 @@
 /* NAV BAR */
 .navbar {
-    background-color: #683f2870;
-    background: linear-gradient(90deg, rgb(218, 158, 79) 0%, rgb(163 149 72 / 0%) 0%, rgb(94 94 94 / 0%) 0%, rgb(255 255 255 / 2%) 46%, rgb(0 0 0 / 40%) 100%, rgb(118 182 161 / 92%) 100%, rgba(0,0,0,1) 100%); 
-    box-shadow:  1px 2px 2px #000000;
+    background-color: #683f2800;
+    z-index: 19 !important;
+    
 }
 .navBarH1 {
     color: #ffffff;
@@ -13,7 +13,7 @@
 .navBarText {
     color: #ffffff;
     font-weight:bold;
-    font-size:20px;
+    font-size:26px;
     text-shadow: 2px 1px 5px #000000;
 }
 .navBarText:hover {
@@ -113,7 +113,7 @@
 
 .daysBtnsDiv{
     margin-left: 7.5%;
-    z-index: 20;
+    z-index: 15;
 }
 /* END OF RECIPE DIV AND ITEMS */
 
