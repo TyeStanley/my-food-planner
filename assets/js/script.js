@@ -184,15 +184,18 @@ function init() {
   document.addEventListener("touchcancel", touchHandler, true);
 }
 
+// function to save to local storage
 var saveToStorage = function(currentSave){
-
+    // takes the current state of the daysOfWeek section and saves it to local storage
      localStorage.setItem('currentDiv', currentSave );
 
 }
 
+// function to load local storage
 var loadSave = function(){
+  // search local storage for currentDiv key
   var getItem = localStorage.getItem('currentDiv');
-    
+  // if there is content then select the main container and set it to that 
   if(getItem){
     $('#dayOfWeekContainer')[0].outerHTML = getItem;
   }
@@ -216,55 +219,39 @@ var textToEmail = function(recTitle,weeklyRecipes) {
     .then(response => console.log(response))
     .catch(err => console.error(err));
 
-      
-
-  
 }
 
+// listern for the grocery list buttons div 
 $(".grocBtns").click(function(event){
+  // sets the event target to var 
   var event = event.target;
+  // checks to see if the event contains the minimizeBTN class list
   var miniBtn = event.classList.contains('minBtn');
+  //checks to see if the event contains the event has clearListItem class 
   var removeItemBtn = event.classList.contains('clearListItem');
+  // checks to see if the event contains the emailBtn Class
   var emailBtn = event.classList.contains("emailBtn");
  
+  // if it is the minBtn then use slide toggle
   if(miniBtn){
-      $(".groceryList").slideToggle();
-      console.log("min");
+      $(".groceryList").slideToggle();  
   }
   else if(removeItemBtn){
-    console.log("remove");
-
+    
   }
   else if(emailBtn){
-    
-    var weeklyRecipes = $('.groceryListTitle')[0].innerHTML; //[0].childNodes[0].innerHTML;
-    
-    // get this class from dom 
+    // Gets the list in the form of HTML from grocery list
+    var weeklyRecipes = $('.groceryListTitle')[0].innerHTML;
+    // split the list at the UL element 
     var titleArray = weeklyRecipes.split("<ul>");
+    // set the first part at the title
     var recTitle = titleArray[0];
+    // set the second part as the ingre
     weeklyRecipes = titleArray[1];
-    console.log(weeklyRecipes);
+    // add h1 to title for email formating 
     recTitle = `<h1>${recTitle}</h1>`;
-    console.log(recTitle);
-    //weeklyRecipes = titleArray[1];
-    
+    // call the email function
     textToEmail(recTitle, weeklyRecipes);
-    
-    // var arrayIng = titleArray[1].split(".");
-    // var recTitle = `Your ${titleArray[0]} ${arrayIng[0]} are:\n`;
-
-  //  for(var i = 1; i < arrayIng.length; ++i){
-
-      
-  //     weeklyRecipes += "\n" + arrayIng[i];
-       
-
-
-
- 
-  //   }
-    
-
   }
   else{
     return;
