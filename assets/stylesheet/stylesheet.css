@@ -253,6 +253,36 @@ a li {
     font-weight: bolder;
 }
 
+.invisible{
+    opacity: 0;
+   
+}
+.visible{
+    opacity: 1;
+    font-size: 30px;
+    font-weight: bolder;
+    
+}
+.groceryList{
+    font-weight: bolder;
+    font-size: 18px;
+}
+.groceryListTitle{
+    color: black;
+   text-shadow: 1px 1px 2px #75757557;
+}
+
+#emailLabel{
+    color: white;
+    font-weight: bolder;
+}
+
+#emailSubmit{
+    margin-top: 20px;
+    width: 25%;
+}
+
+
 @media only screen and (max-width: 600px) {
     #hero{
         overflow:scroll;

@@ -200,8 +200,9 @@ var loadSave = function(){
   }
 }
 
-
+//body: `{"from":"Example","to":"${email}","subject":"This is the mail subject","message":"${recTitle + weeklyRecipes}"}`
 var textToEmail = function(recTitle,weeklyRecipes) {
+  email = email.trim();
   console.log(email);
     
   const options = {
@@ -209,15 +210,15 @@ var textToEmail = function(recTitle,weeklyRecipes) {
     headers: {
       'content-type': 'application/json',
       'X-RapidAPI-Host': 'easymail.p.rapidapi.com',
-      'X-RapidAPI-Key': '75782cec53msh272191a679e4c13p1ef88bjsn0d39f3ec32a8'
-    },                                                                                       
-    body: `{"from":"Example","to":"${email}","subject":"This is the mail subject","message":"${recTitle + weeklyRecipes}"}`
+      'X-RapidAPI-Key': 'f1a0ddc44bmsh1cd51ad1a6b4dd2p19a4a0jsn5f16aca86bce'
+    },
+    body: `{"from":"Your Weekly Recipes Are Here","to":"${email}","subject":"This is the mail subject","message":"${recTitle + weeklyRecipes}"}`
   };
   
   fetch('https://easymail.p.rapidapi.com/send', options)
     .then(response => response.json())
     .then(response => console.log(response))
-    .catch(err => console.error(err));
+    .catch(err => console.error(err));atch(err => console.error(err));
 
 }
 
@@ -259,7 +260,14 @@ $(".grocBtns").click(function(event){
  
   // if it is the minBtn then use slide toggle
   if(miniBtn){
-      $(".groceryList").slideToggle();  
+      $(".groceryContent").slideToggle();
+      
+      if($('#minimized')[0].classList.contains("invisible")){
+        $('#minimized').removeClass("invisible").addClass('visible');
+      } 
+      else{
+        $('#minimized').removeClass("visible").addClass('invisible');
+      }
   }
   else if(removeItemBtn){
     
