@@ -267,7 +267,6 @@ a li {
     
 }
 
-<<<<<<< HEAD
 .grocBtns button{
     
     margin-right: 10px;
@@ -316,7 +315,6 @@ a li {
     width: 25%;
 }
 
-=======
 #results{
     color: black;
     font-size: 20px;
@@ -328,14 +326,12 @@ a li {
     color: black;
     font-weight: bolder;
 }
->>>>>>> feature/calorie-calculator
 
 @media only screen and (max-width: 600px) {
     #hero{
         overflow:scroll;
         
     }
-<<<<<<< HEAD
    .grocBtns {
     margin-top : 20px;
     margin-left: 15px;
@@ -345,8 +341,7 @@ a li {
     display: none;
     }   
   }
-=======
-  }
+  
 
 @media screen and (max-width: 575px) {
     .info-form {
@@ -354,4 +349,3 @@ a li {
     }
 }
     
->>>>>>> feature/calorie-calculator
