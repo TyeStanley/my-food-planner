@@ -293,3 +293,77 @@ $(".grocBtns").click(function(event){
 
 
 loadSave();
+
+(function() {
+  const form = document.getElementById('info-form');
+  const results = document.getElementById('results');
+  const errors = document.getElementById('form-error');
+
+  /* Returns false if form is blank*/
+  function errorMessage(message) {
+    errors.innerHTML = message;
+    errors.style.display = '';
+    return false
+  };
+
+  /* Calculate the daily calories */
+  function calculateResults(calories) {
+    results.innerHTML = '<p>Basal metabolic rate (BMR):' + Math.round(calories) + ' calories a day.</p><a href="#" id="gb">go back</a>';
+    results.style.display = ''
+    form.style.display = 'none'
+  };
+
+  /* Go from result to form */
+  function goBack(event) {
+    if(event.target.id = "gb") {
+      event.preventDefault();
+      results.style.display = 'none';
+      form.style.display = '';
+      form.reset();
+    };
+  };
+  /* Handle submit */
+  function submitHandler(event) {
+    event.preventDefault();
+
+    /* Age */
+    let age = parseFloat(form.age.value);
+    if (isNaN(age) || age < 0) {
+      return errorMessage('Please enter an age');
+    };
+
+    let heigthCM = parseFloat(form.height_cm.value);
+    if (isNaN(heigthCM) || heigthCM < 0) {
+      let heightFeet = parseFloat(form.height_ft.value);
+      if (isNaN(heightFeet) || heightFeet < 0) {
+        return errorMessage('Please enter valid height');
+      }
+      let heightIn = parseFloat(form.height_in.value);
+      if (isNaN(heightIn) || heightIn < 0) {
+        heightIn = 0;
+      }
+      heigthCM = (2.54 * heightIn) + (30.4 * heightFeet)
+    }
+
+    let weight = parseFloat(form.weight.value);
+    if (isNaN(weight) || weight < 0) {
+      return errorMessage('Please enter a weight');
+    }
+
+    if (form.weight_unit.value == 'lb') {
+      weight = 0.4536 * weight;
+    }
+
+    let calories = 0;
+    if (form.gender.value == 'Female') {
+
+      calories = 655.09 + (9.56 * weight) + (1.84 * heigthCM) - (4.67 * age);
+    } else {
+      calories = 66.47 + (13.75 * weight) + (5 * heigthCM) - (6.75 * age)
+    };
+
+    calculateResults(calories);
+  };
+  form.addEventListener('submit', submitHandler);
+  results.addEventListener('click', goBack, true);
+})();
