@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=100, initial-scale=1.0" />
     <!-- Links for CSS / FONTS / ICONS -->
-    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css"/>
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./assets/stylesheet/stylesheet.css" />
@@ -223,8 +223,74 @@
         <a href="https://github.com/AlexisR3099" target="_blank"><li class="devNames">Alexis Ramos - GitHub</li></a>
       </ul>
     </div>
+
+    <div class="calc-wrap"><h3>BMR Helps maintain healthy weight. See recipe links for calorie info</h3>
+      <div class="form-error" style="display: none;"></div>
+      <form class="info-form" id="info-form">
+        <div class="outer-box">
+          <label for="distance" class="top-label">Age:</label>
+          <div class="field-input">
+            <div class="field">
+              <input type="text" name="age" id="age" inputmode="numeric" pattern="[0-9]*">
+            </div> <!-- field -->
+
+            <div class="field">
+              <select name="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div> <!-- .field -->
+          </div> <!-- .field-input -->
+        </div> <!-- .outer-box -->
+
+        <div class="outer-box">
+          <label for="height" class="top-label">Height:</label>
+          <div class="field-input">
+            <div class="field">
+              <input type="text" name="height_ft" id="height-_ft" inputmode="numeric" pattern="[0-9]*">
+              <label for="height_ft">feet</label>
+            </div> <!-- .field -->
+            <div class="field">
+              <input type="text" name="height_in" id="height_in" inputmode="numeric" pattern="[0-9]*">
+              <label for="height_in">inches</label>
+            </div> <!-- .field -->
+            <div class="field">
+              <input type="text" name="height_cm" id="height_cm" inputmode="numeric" pattern="[0-9]*">
+              <label for="height_cm">or centimeters</label>
+            </div><!-- .field -->
+          </div> <!-- .field-input -->
+        </div> <!-- .outer-box -->
+
+        <div class="outer-box">
+          <label for="weight" class="top-label">Your weight:</label>
+          <div class="field-input">
+            <div class="field">
+              <input type="text" name="weight" id="weight" inputmode="numeric" pattern="[0-9]*">
+            </div><!-- field -->
+            <div class="field">
+              <select name="weight_unit">
+                <option value="lb">lb</option>
+                <option value="kg">kg</option>
+              </select>
+            </div> <!-- .field -->
+          </div> <!-- .field-input -->
+        </div> <!-- .outer-box-->
+        <div class="btn-wrap outer-box">
+          <button class="form-submit">Calculate</button>
+        </div>
+      </form>
+      <div id="results" style="display: none;"></div>
+    </div>
+
+
+
+
+
+
   </section>
 </footer>
+
+<!-- -->
 <!---------------------------------END OF FOOTER SECTION ----------------------------------------->
 
   <!-- add script at the bottom of the body -->
